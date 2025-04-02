@@ -1,0 +1,6 @@
+body { font-family: sans-serif; background: #04172F; color: white; text-align: center; }
+.container { padding: 2em; }
+.logo { width: 80px; margin-bottom: 1em; }
+.button-grid { display: flex; flex-direction: column; gap: 1em; max-width: 400px; margin: auto; }
+.btn { background: #06264D; padding: 1em; border-radius: 10px; color: white; text-decoration: none; display: flex; align-items: center; gap: 1em; }
+.btn img { width: 32px; height: 32px; }
