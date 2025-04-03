@@ -1,1 +1,5 @@
-Contenido simulado para requirements.txt
+fastapi
+uvicorn
+jinja2
+requests
+python-multipart
