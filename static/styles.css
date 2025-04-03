@@ -1,46 +1,60 @@
-
 body {
-    background-color: #062a44;
+    background-color: #0a1e3f;
     color: white;
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
 }
-.logo-container {
-    text-align: center;
-    padding: 20px;
-}
-.logo {
-    width: 180px;
-}
-.menu {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-.btn-link {
-    background-color: #0f4c75;
-    padding: 15px 25px;
+
+h1, h2 {
     color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-size: 18px;
-    width: 80%;
-    text-align: center;
 }
-.pdf-container {
-    height: 92vh;
-}
-.botones-flotantes {
+
+button.flotante {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    bottom: 25px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background-color: #00bfff;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
-.btn img {
-    width: 30px;
-    height: 30px;
+
+#guardarBtn {
+    left: 20px;
 }
-    
+
+#imprimirBtn {
+    left: 110px;
+}
+
+#eliminarBtn {
+    left: 200px;
+}
+
+#visor-pdf {
+    width: 90%;
+    height: 650px;
+    margin: 20px auto;
+    border: 2px solid #00bfff;
+    border-radius: 8px;
+    display: block;
+    background: white;
+}
+
+#buscador {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    margin-right: 10px;
+}
