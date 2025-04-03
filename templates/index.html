@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MEDSYS - Inicio</title>
+    <style>
+        body {
+            background-color: #041e34;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 30px;
+        }
+        img.logo {
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        .menu-button {
+            background-color: #0a3c5f;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            margin: 10px auto;
+            display: flex;
+            align-items: center;
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        .menu-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="/static/logo-app.png" alt="Logo MEDSYS" class="logo">
+
+    <div>
+        <a href="/registro">
+            <div class="menu-button">
+                <img src="/static/icono-registro.png" alt="Registro">
+                Registro de pacientes
+            </div>
+        </a>
+        <a href="/historia_clinica">
+            <div class="menu-button">
+                <img src="/static/icono-historia.png" alt="Historia clínica">
+                Historia clínica
+            </div>
+        </a>
+        <a href="/receta">
+            <div class="menu-button">
+                <img src="/static/icono-receta.png" alt="Recetas">
+                Recetas
+            </div>
+        </a>
+        <a href="/indicaciones">
+            <div class="menu-button">
+                <img src="/static/icono-indicaciones.png" alt="Indicaciones">
+                Indicaciones médicas
+            </div>
+        </a>
+        <a href="/turnos">
+            <div class="menu-button">
+                <img src="/static/icono-turnos.png" alt="Turnos">
+                Turnos
+            </div>
+        </a>
+    </div>
+</body>
+</html>
