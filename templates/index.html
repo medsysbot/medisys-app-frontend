@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MEDISYS - Inicio</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            background-color: #001F3F;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .logo {
+            margin-top: 20px;
+        }
+        .logo img {
+            width: 120px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin: 10px 0 30px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .menu a {
+            background-color: #004080;
+            padding: 15px 30px;
+            border-radius: 10px;
+            color: white;
+            text-decoration: none;
+            width: 80%;
+            max-width: 300px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+        .menu a:hover {
+            background-color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="/static/logo.png" alt="Logo MEDISYS">
+    </div>
+    <h1>MEDISYS</h1>
+    <div class="menu">
+        <a href="/registro">Registro de pacientes</a>
+        <a href="/historia_completa">Historia clínica</a>
+        <a href="/receta">Recetas</a>
+        <a href="/indicaciones">Indicaciones médicas</a>
+        <a href="/turnos">Turnos</a>
+    </div>
+</body>
+</html>
