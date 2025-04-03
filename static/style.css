@@ -1,0 +1,36 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #041f3d;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    padding: 30px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.button {
+    background-color: #0c3c68;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    width: 80%;
+    max-width: 300px;
+}
