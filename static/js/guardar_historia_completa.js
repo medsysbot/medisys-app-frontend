@@ -1,0 +1,1 @@
+// Archivo JS para Guardar historia completa
