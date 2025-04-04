@@ -3,52 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>MEDSYS</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
         <img src="/static/logo-app.png" alt="MEDSYS Logo" class="logo-principal">
-        <h1 class="titulo">MEDSYS</h1>
+        <h1>MEDSYS</h1>
 
-        <div class="boton" onclick="window.location.href='/registro'">
-            <img src="/static/icons/icono-registro.png" class="icono">
-            Registro de pacientes
-        </div>
+        <div class="menu">
+            <a href="#" class="boton-principal">
+                <img src="/static/icons/save.png" alt="Ícono" class="icono-boton">
+                Registro de pacientes
+            </a>
 
-        <div class="boton" onclick="window.location.href='/historia'">
-            <img src="/static/icons/icono-historia.png" class="icono">
-            Historia clínica
-        </div>
+            <a href="/historia_completa" class="boton-principal">
+                <img src="/static/icons/save.png" alt="Ícono" class="icono-boton">
+                Historia clínica
+            </a>
 
-        <div class="boton">
-            <img src="/static/icons/icono-receta.png" class="icono">
-            Recetas
-            <button class="boton-circular enviar" onclick="guardarFormulario()">
-                <img src="/static/icons/send-icon.svg" alt="Enviar">
-            </button>
-        </div>
+            <a href="/receta" class="boton-principal">
+                <img src="/static/icons/send-icon.svg" alt="Ícono" class="icono-boton">
+                Recetas
+            </a>
 
-        <div class="boton">
-            <img src="/static/icons/icono-indicaciones.png" class="icono">
-            Indicaciones médicas
-            <button class="boton-circular eliminar" onclick="eliminarFormulario()">
-                <img src="/static/icons/delete-icon.svg" alt="Eliminar">
-            </button>
-        </div>
+            <a href="/indicaciones" class="boton-principal">
+                <img src="/static/icons/delete-icon.svg" alt="Ícono" class="icono-boton">
+                Indicaciones médicas
+            </a>
 
-        <div class="boton">
-            <img src="/static/icons/icono-turnos.png" class="icono">
-            Turnos
-            <button class="boton-circular imprimir" onclick="imprimirFormulario()">
-                <img src="/static/icons/print-icon.svg" alt="Imprimir">
-            </button>
-        </div>
-
-        <div class="boton-circular cerrar" onclick="window.close()">
-            <img src="/static/icons/close-icon.svg" alt="Cerrar">
+            <a href="/evolucion" class="boton-principal">
+                <img src="/static/icons/print-icon.svg" alt="Ícono" class="icono-boton">
+                Turnos
+            </a>
         </div>
     </div>
-
-    <script src="/static/js/script.js"></script>
 </body>
 </html>
