@@ -1,26 +1,19 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f8f9fc;
+  background-color: #032b43; /* Todo el fondo azul */
   margin: 0;
   padding: 0;
-  color: #333;
+  color: white;
   text-align: center;
 }
 
 header {
-  background-color: #032b43;
-  color: white;
   padding: 2rem 1rem;
 }
 
 .logo-grande {
   width: 100px;
   margin-bottom: 0.5rem;
-}
-
-h1 {
-  font-size: 1.8rem;
-  margin: 0;
 }
 
 main {
@@ -62,7 +55,6 @@ main {
 }
 
 footer {
-  background-color: #032b43;
   color: white;
   padding: 1rem;
   font-size: 0.9rem;
