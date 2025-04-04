@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Pacientes</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <style>
         body {
             background-color: #0a1d2b;
             color: white;
             font-family: Arial, sans-serif;
-            padding: 20px 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .icono-registro {
-            width: 180px; /* ¡MUCHO más grande! */
-            margin-top: 10px;
-            margin-bottom: -10px;
-        }
-
-        h1 {
-            font-size: 26px;
-            margin-bottom: 20px;
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
 
-        form {
+        .container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            width: 90%;
-            max-width: 400px;
-            margin-top: -10px; /* Para subirlo más cerca del logo */
+            align-items: center;
+            margin-top: 40px;
         }
 
-        input, select {
-            padding: 13px;
-            border: none;
-            border-radius: 8px;
+        .form-box {
+            margin-top: 20px;
+        }
+
+        .form-box input, .form-box select {
+            display: block;
+            margin: 10px auto;
+            padding: 12px;
+            width: 280px;
             font-size: 16px;
+            border-radius: 6px;
+            border: none;
+        }
+
+        .icono-superior {
+            width: 90px;
+            margin-bottom: 10px;
         }
 
         .floating-buttons {
@@ -52,36 +49,52 @@
             gap: 18px;
         }
 
-        .floating-buttons img {
-            width: 56px;
-            height: 56px;
+        .floating-buttons button {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background-color: #007bff;
-            padding: 10px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .floating-buttons img {
+            width: 28px;
+            height: 28px;
         }
     </style>
 </head>
 <body>
 
-    <img src="/static/icono-registro.png" alt="Icono Registro" class="icono-registro">
-    <h1>Registro de Pacientes</h1>
+    <div class="container">
+        <img src="/static/icons/icono-registro.png" alt="Registro Icono" class="icono-superior">
+        <h2>Registro de Pacientes</h2>
 
-    <form>
-        <input type="text" placeholder="Nombre" required>
-        <input type="text" placeholder="Apellido" required>
-        <input type="text" placeholder="Número de documento" required>
-        <input type="number" placeholder="Edad" required>
-        <select>
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
-            <option value="Otro">Otro</option>
-        </select>
-    </form>
+        <div class="form-box">
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Apellido">
+            <input type="text" placeholder="Número de documento">
+            <input type="number" placeholder="Edad">
+            <select>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+    </div>
 
     <div class="floating-buttons">
-        <img src="/static/icons/save.png" alt="Guardar">
-        <img src="/static/icons/print.png" alt="Imprimir">
-        <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+        <button title="Guardar">
+            <img src="/static/icons/save.png" alt="Guardar">
+        </button>
+        <button title="Imprimir">
+            <img src="/static/icons/print.png" alt="Imprimir">
+        </button>
+        <button title="Eliminar">
+            <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+        </button>
     </div>
 
 </body>
