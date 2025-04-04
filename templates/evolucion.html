@@ -1,1 +1,43 @@
-Contenido simulado para evolucion.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Evolución Diaria</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/js/guardar_evolucion_diaria.js" defer></script>
+</head>
+<body>
+  <div class="formulario-container">
+    <img src="/static/logo.png" class="marca-agua" alt="MEDSYS">
+    <h1>Evolución Diaria</h1>
+
+    <form id="formularioEvolucionDiaria">
+      <!-- Campos del formulario -->
+      <label for="nombre">Nombre del paciente:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" name="dni" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="evolucion">Evolución del día:</label>
+      <textarea id="evolucion" name="evolucion" rows="6"></textarea>
+    </form>
+  </div>
+
+  <!-- BOTONES FLOTANTES -->
+  <div class="botones-flotantes">
+    <button onclick="guardarFormulario()" title="Guardar">
+      <img src="/static/icons/save.png" alt="Guardar">
+    </button>
+    <button onclick="imprimirFormulario()" title="Imprimir">
+      <img src="/static/icons/print.png" alt="Imprimir">
+    </button>
+    <button onclick="eliminarFormulario()" title="Eliminar">
+      <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+    </button>
+  </div>
+</body>
+</html>
