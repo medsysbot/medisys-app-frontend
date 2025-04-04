@@ -1,1 +1,42 @@
-Contenido simulado para receta.html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Receta Médica</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body class="formulario">
+  <div class="form-container">
+    <h1>Receta Médica</h1>
+    <form id="form-receta">
+      <label for="nombre">Nombre del paciente:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" name="dni" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="medicamentos">Medicamentos indicados:</label>
+      <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
+
+      <div class="botones-flotantes">
+        <button type="button" onclick="guardarFormulario()">
+          <img src="/static/icons/save-icon.svg" alt="Guardar">
+        </button>
+        <button type="button" onclick="imprimirFormulario()">
+          <img src="/static/icons/print-icon.svg" alt="Imprimir">
+        </button>
+        <button type="button" onclick="eliminarFormulario()">
+          <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+        </button>
+        <button type="button">
+          <img src="/static/icons/close-icon.svg" alt="Cerrar">
+        </button>
+      </div>
+    </form>
+  </div>
+  <script src="/static/js/guardar_receta.js"></script>
+</body>
+</html>
