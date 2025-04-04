@@ -12,7 +12,7 @@
             text-align: center;
             padding: 50px 20px;
         }
-        img {
+        img.logo {
             width: 220px;
             margin-top: 30px;
             margin-bottom: 10px;
@@ -25,25 +25,48 @@
             margin: 40px auto;
         }
         .btn {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
             padding: 15px 20px;
-            background-color: #007bff;
+            background-color: #0056b3;
             color: white;
             border-radius: 10px;
             text-decoration: none;
             font-size: 16px;
         }
+        .btn img {
+            width: 24px;
+            height: 24px;
+        }
     </style>
 </head>
 <body>
 
-    <img src="/static/logo-app.png" alt="MEDSYS Logo">
+    <img src="/static/logo-app.png" alt="MEDSYS Logo" class="logo">
 
     <div class="button-container">
-        <a class="btn" href="/registro">Registro de pacientes</a>
-        <a class="btn" href="/historia">Historia clínica</a>
-        <a class="btn" href="/recetas">Recetas</a>
-        <a class="btn" href="/indicaciones">Indicaciones médicas</a>
-        <a class="btn" href="/turnos">Turnos</a>
+        <a class="btn" href="/registro">
+            <img src="/static/icono-registro.png" alt="Registro">
+            Registro de pacientes
+        </a>
+        <a class="btn" href="/historia">
+            <img src="/static/icono-historia.png" alt="Historia">
+            Historia clínica
+        </a>
+        <a class="btn" href="/recetas">
+            <img src="/static/icono-receta.png" alt="Recetas">
+            Recetas
+        </a>
+        <a class="btn" href="/indicaciones">
+            <img src="/static/icono-indicaciones.png" alt="Indicaciones">
+            Indicaciones médicas
+        </a>
+        <a class="btn" href="/turnos">
+            <img src="/static/icono-turnos.png" alt="Turnos">
+            Turnos
+        </a>
     </div>
 
 </body>
