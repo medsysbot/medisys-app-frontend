@@ -1,124 +1,72 @@
-/* Estilos generales */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #0a1a2f;
-    color: white;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fc;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  text-align: center;
 }
 
-/* Página principal - index.html */
-.home-body {
-    padding: 20px;
-    text-align: center;
+header {
+  background-color: #032b43;
+  color: white;
+  padding: 2rem 1rem;
 }
 
-.logo-container {
-    text-align: left;
-    padding: 10px 20px;
+.logo-grande {
+  width: 100px;
+  margin-bottom: 0.5rem;
 }
 
-.logo-img {
-    width: 150px;
+h1 {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
-/* Botones principales */
-.botones-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin-top: 40px;
+main {
+  padding: 2rem;
 }
 
-.boton-principal {
-    display: flex;
-    align-items: center;
-    background-color: #003366;
-    color: white;
-    text-decoration: none;
-    padding: 18px 28px;
-    border-radius: 12px;
-    width: 85%;
-    max-width: 400px;
-    font-size: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+.botonera {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-.boton-principal:hover {
-    background-color: #0055aa;
+.boton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #0a66c2;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
 }
 
-.icono-boton {
-    width: 32px;
-    height: 32px;
-    margin-right: 15px;
+.boton:hover {
+  background-color: #094a8f;
 }
 
-/* Formulario - ejemplo base */
-.form-body {
-    background-color: #0a1a2f;
-    padding: 30px 20px;
+.icono {
+  width: 24px;
+  height: 24px;
 }
 
-.form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    background-color: #112244;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.form-title {
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-}
-
-/* Icono del título del formulario */
-.icono-titulo {
-    width: 80px;
-    margin-bottom: 20px;
-}
-
-/* Botones flotantes */
-.botones-flotantes {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.btn.redondo {
-    background-color: #004080;
-    border: none;
-    border-radius: 50%;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.btn.redondo:hover {
-    transform: scale(1.1);
-}
-
-.btn.redondo img {
-    width: 28px;
-    height: 28px;
+footer {
+  background-color: #032b43;
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
