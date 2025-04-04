@@ -3,72 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>MEDSYS</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-    <style>
-        body {
-            background-color: #0a1d2b;
-            color: white;
-            <div class="titulo-con-icono">
-    <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Icono Registro" class="icono-titulo">
-    <h1 class="form-title">Registro de Pacientes</h1>
-</div>
-        }
-        img.logo {
-            width: 220px;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            max-width: 370px;
-            margin: 40px auto;
-        }
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 18px;
-            padding: 12px 25px;
-            background-color: #002244;
-            color: white;
-            border-radius: 15px;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .btn img {
-            width: 60px;
-            height: 60px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-
-    <img src="/static/logo-app.png" alt="MEDSYS Logo" class="logo">
-
-    <div class="button-container">
-        <a class="btn" href="/registro">
-            <img src="/static/icono-registro.png" alt="Registro">
-            Registro de pacientes
-        </a>
-        <a class="btn" href="/historia">
-            <img src="/static/icono-historia.png" alt="Historia">
-            Historia clínica
-        </a>
-        <a class="btn" href="/recetas">
-            <img src="/static/icono-receta.png" alt="Recetas">
-            Recetas
-        </a>
-        <a class="btn" href="/indicaciones">
-            <img src="/static/icono-indicaciones.png" alt="Indicaciones">
-            Indicaciones médicas
-        </a>
-        <a class="btn" href="/turnos">
-            <img src="/static/icono-turnos.png" alt="Turnos">
-            Turnos
-        </a>
+<body class="main-body">
+    <div class="main-container">
+        <img src="{{ url_for('static', filename='logo-app.png') }}" alt="Logo MEDSYS" class="main-logo">
+        <div class="main-buttons">
+            <a href="/registro" class="main-button">
+                <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Registro">
+                Registro de pacientes
+            </a>
+            <a href="/historia" class="main-button">
+                <img src="{{ url_for('static', filename='icons/icono-historia.png') }}" alt="Historia">
+                Historia clínica
+            </a>
+            <a href="/recetas" class="main-button">
+                <img src="{{ url_for('static', filename='icons/icono-receta.png') }}" alt="Recetas">
+                Recetas
+            </a>
+            <a href="/indicaciones" class="main-button">
+                <img src="{{ url_for('static', filename='icons/icono-indicaciones.png') }}" alt="Indicaciones">
+                Indicaciones médicas
+            </a>
+            <a href="/turnos" class="main-button">
+                <img src="{{ url_for('static', filename='icons/icono-turnos.png') }}" alt="Turnos">
+                Turnos
+            </a>
+        </div>
     </div>
-
 </body>
 </html>
