@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>MEDSYS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MEDISYS - Salud Inteligente</title>
+  <link rel="stylesheet" href="static/styles.css" />
+  <link rel="icon" href="static/logo.png" type="image/png" />
 </head>
-<body class="home-body">
-    <div class="logo-container">
-        <img src="{{ url_for('static', filename='logo-app.png') }}" alt="Logo Medisys" class="logo-img">
-    </div>
+<body>
+  <header>
+    <img src="static/logo.png" alt="Logo MEDISYS" class="logo-grande" />
+    <h1>MEDISYS: Salud Inteligente</h1>
+  </header>
 
-    <div class="botones-container">
-        <a href="/registro" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Registro" class="icono-boton">
-            Registro de pacientes
-        </a>
-        <a href="/historia" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia.png') }}" alt="Historia" class="icono-boton">
-            Historia clínica
-        </a>
-        <a href="/recetas" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-receta.png') }}" alt="Recetas" class="icono-boton">
-            Recetas
-        </a>
-        <a href="/indicaciones" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-indicaciones.png') }}" alt="Indicaciones" class="icono-boton">
-            Indicaciones médicas
-        </a>
-        <a href="/turnos" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-turnos.png') }}" alt="Turnos" class="icono-boton">
-            Turnos
-        </a>
+  <main>
+    <div class="botonera">
+      <a href="registro.html" class="boton">
+        <img src="static/icons/user-plus.svg" alt="Icono Registro" class="icono" />
+        Registro de Pacientes
+      </a>
+      <a href="historia.html" class="boton">
+        <img src="static/icons/file-text.svg" alt="Icono Historia Clínica" class="icono" />
+        Historia Clínica
+      </a>
+      <a href="receta.html" class="boton">
+        <img src="static/icons/clipboard.svg" alt="Icono Receta" class="icono" />
+        Receta Electrónica
+      </a>
+      <a href="indicaciones.html" class="boton">
+        <img src="static/icons/info.svg" alt="Icono Indicaciones" class="icono" />
+        Indicaciones Médicas
+      </a>
     </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MEDISYS</p>
+  </footer>
 </body>
 </html>
