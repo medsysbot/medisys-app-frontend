@@ -2,72 +2,37 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>MEDSYS</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <style>
-        body {
-            background-color: #0a1d2b;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px 20px;
-        }
-        img {
-            width: 220px;
-            margin-top: 30px;
-            margin-bottom: 10px;
-        }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 300px;
-            margin: 40px auto;
-        }
-        .btn {
-            padding: 15px 20px;
-            background-color: #004080;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .btn img {
-            width: 28px;
-            height: 28px;
-        }
-    </style>
+    <title>Medsys</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="inicio-body">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='logo-app.png') }}" alt="Logo Medsys" class="logo-principal">
+        <h1 class="titulo-principal">MEDSYS</h1>
+    </div>
 
-    <img src="/static/logo-app.png" alt="MEDSYS Logo">
-
-    <div class="button-container">
-        <a class="btn" href="/registro">
-            <img src="/static/icons/icono-registro.png" alt="Registro">
+    <div class="menu-botones">
+        <a href="/registro" class="boton-menu">
+            <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Registro" class="icono-boton">
             Registro de pacientes
         </a>
-        <a class="btn" href="/historia">
-            <img src="/static/icons/icono-historia.png" alt="Historia">
+        <a href="/historia" class="boton-menu">
+            <img src="{{ url_for('static', filename='icons/icono-historia.png') }}" alt="Historia" class="icono-boton">
             Historia clínica
         </a>
-        <a class="btn" href="/recetas">
-            <img src="/static/icons/icono-receta.png" alt="Recetas">
+        <a href="/recetas" class="boton-menu">
+            <img src="{{ url_for('static', filename='icons/icono-receta.png') }}" alt="Recetas" class="icono-boton">
             Recetas
         </a>
-        <a class="btn" href="/indicaciones">
-            <img src="/static/icons/icono-indicaciones.png" alt="Indicaciones">
+        <a href="/indicaciones" class="boton-menu">
+            <img src="{{ url_for('static', filename='icons/icono-indicaciones.png') }}" alt="Indicaciones" class="icono-boton">
             Indicaciones médicas
         </a>
-        <a class="btn" href="/turnos">
-            <img src="/static/icons/icono-turnos.png" alt="Turnos">
+        <a href="/turnos" class="boton-menu">
+            <img src="{{ url_for('static', filename='icons/icono-turnos.png') }}" alt="Turnos" class="icono-boton">
             Turnos
         </a>
     </div>
-
 </body>
 </html>
