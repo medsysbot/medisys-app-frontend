@@ -9,103 +9,78 @@
             background-color: #0a1d2b;
             color: white;
             font-family: Arial, sans-serif;
+            padding: 30px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icono-registro {
+            width: 80px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
             text-align: center;
-            padding: 30px 15px 100px;
         }
 
-        .form-container {
-            margin-top: 40px;
-        }
-
-        .form-container input,
-        .form-container select {
-            display: block;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             width: 90%;
             max-width: 400px;
-            margin: 10px auto;
+        }
+
+        input, select {
             padding: 12px;
-            font-size: 16px;
             border: none;
-            border-radius: 6px;
-        }
-
-        .form-title {
-            font-size: 24px;
-            margin-top: 15px;
-            margin-bottom: 30px;
-        }
-
-        .icon-top {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 10px;
-            display: block;
+            border-radius: 8px;
+            font-size: 16px;
         }
 
         .floating-buttons {
             position: fixed;
-            bottom: 20px;
+            bottom: 30px;
             right: 20px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
-            z-index: 1000;
-        }
-
-        .floating-buttons button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: none;
-            background-color: #007bff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
+            gap: 15px;
         }
 
         .floating-buttons img {
-            width: 28px;
-            height: 28px;
-        }
-
-        @media (max-height: 600px) {
-            .floating-buttons {
-                bottom: 10px;
-                right: 10px;
-            }
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #007bff;
+            padding: 10px;
         }
     </style>
 </head>
 <body>
 
-    <img src="/static/icono-registro.png" alt="Registro" class="icon-top">
+    <img src="/static/icono-registro.png" alt="Icono Registro" class="icono-registro">
+    <h1>Registro de Pacientes</h1>
 
-    <div class="form-title">Registro de Pacientes</div>
-
-    <div class="form-container">
-        <input type="text" placeholder="Nombre" name="nombre">
-        <input type="text" placeholder="Apellido" name="apellido">
-        <input type="text" placeholder="Número de documento" name="documento">
-        <input type="number" placeholder="Edad" name="edad">
-        <select name="sexo">
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
+    <form>
+        <input type="text" placeholder="Nombre" required>
+        <input type="text" placeholder="Apellido" required>
+        <input type="text" placeholder="Número de documento" required>
+        <input type="number" placeholder="Edad" required>
+        <select>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
         </select>
-    </div>
+    </form>
 
     <div class="floating-buttons">
-        <button title="Guardar">
-            <img src="/static/icons/save.png" alt="Guardar">
-        </button>
-        <button title="Imprimir">
-            <img src="/static/icons/print.png" alt="Imprimir">
-        </button>
-        <button title="Eliminar">
-            <img src="/static/icons/delete-icon.svg" alt="Eliminar">
-        </button>
+        <img src="/static/icons/save.png" alt="Guardar">
+        <img src="/static/icons/print.png" alt="Imprimir">
+        <img src="/static/icons/delete-icon.svg" alt="Eliminar">
     </div>
 
 </body>
