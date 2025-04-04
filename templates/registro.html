@@ -3,38 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Pacientes</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <style>
         body {
-            background-color: #0a1a24;
+            background-color: #031926;
             color: white;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
             padding: 0;
+            margin: 0;
         }
 
-        .icono-registro {
+        .container {
             margin-top: 40px;
-            width: 80px;
+        }
+
+        .icono-superior {
+            width: 90px;
+            margin-bottom: 10px;
         }
 
         h1 {
             font-size: 24px;
-            margin: 20px 0;
+            margin-bottom: 30px;
         }
 
         form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 12px;
-            margin-top: 10px;
         }
 
         input, select {
-            padding: 10px;
             width: 280px;
+            padding: 10px;
+            margin: 8px 0;
             border-radius: 8px;
             border: none;
             font-size: 16px;
@@ -42,55 +45,61 @@
 
         .floating-buttons {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 20px;
             z-index: 999;
         }
 
         .floating-buttons button {
-            background-color: transparent;
+            background-color: #00bfff;
             border: none;
-            padding: 0;
-            cursor: pointer;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .floating-buttons img {
-            width: 48px;
-            height: 48px;
+        .floating-buttons button img {
+            width: 30px;
+            height: 30px;
         }
+
     </style>
 </head>
 <body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Ícono Registro" class="icono-superior">
+        <h1>Registro de Pacientes</h1>
 
-    <img src="/static/icons/icono-registro.png" alt="Registro Icono" class="icono-registro">
-    <h1>Registro de Pacientes</h1>
-
-    <form>
-        <input type="text" placeholder="Nombre">
-        <input type="text" placeholder="Apellido">
-        <input type="text" placeholder="Número de documento">
-        <input type="number" placeholder="Edad">
-        <select>
-            <option>Masculino</option>
-            <option>Femenino</option>
-            <option>Otro</option>
-        </select>
-    </form>
+        <form>
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Apellido">
+            <input type="text" placeholder="Número de documento">
+            <input type="text" placeholder="Edad">
+            <select>
+                <option>Masculino</option>
+                <option>Femenino</option>
+                <option>Otro</option>
+            </select>
+        </form>
+    </div>
 
     <div class="floating-buttons">
         <button title="Guardar">
-            <img src="/static/icons/save.png" alt="Guardar">
+            <img src="{{ url_for('static', filename='icons/save.png') }}" alt="Guardar">
         </button>
         <button title="Imprimir">
-            <img src="/static/icons/print.png" alt="Imprimir">
+            <img src="{{ url_for('static', filename='icons/print.png') }}" alt="Imprimir">
         </button>
         <button title="Eliminar">
-            <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+            <img src="{{ url_for('static', filename='icons/delete-icon.svg') }}" alt="Eliminar">
         </button>
     </div>
-
 </body>
 </html>
