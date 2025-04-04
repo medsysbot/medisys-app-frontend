@@ -1,40 +1,42 @@
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
-from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
+from typing import Optional
+from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 
-# Montar carpetas estáticas y templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # Pantalla principal
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+async def home(request: Request):
+    return templates.TemplateResponse("home.html", {"request": request})
 
-# Historia clínica completa
-@app.get("/historia-completa", response_class=HTMLResponse)
+# ENDPOINTS simulados
+@app.post("/generate")
+async def generate_document(request: Request):
+    return {"status": "ok"}
+
+@app.post("/historia_completa")
 async def historia_completa(request: Request):
-    return templates.TemplateResponse("historia_completa.html", {"request": request})
+    return {"status": "historia_completa recibida"}
 
-# Historia clínica resumida
-@app.get("/historia-resumida", response_class=HTMLResponse)
+@app.post("/historia_resumida")
 async def historia_resumida(request: Request):
-    return templates.TemplateResponse("historia_resumida.html", {"request": request})
+    return {"status": "historia_resumida recibida"}
 
-# Evolución diaria
-@app.get("/evolucion-diaria", response_class=HTMLResponse)
-async def evolucion_diaria(request: Request):
-    return templates.TemplateResponse("evolucion_diaria.html", {"request": request})
+@app.post("/evolucion")
+async def evolucion(request: Request):
+    return {"status": "evolución recibida"}
 
-# Receta médica
-@app.get("/receta", response_class=HTMLResponse)
+@app.post("/receta")
 async def receta(request: Request):
-    return templates.TemplateResponse("receta.html", {"request": request})
+    return {"status": "receta recibida"}
 
-# Indicaciones médicas
-@app.get("/indicaciones", response_class=HTMLResponse)
+@app.post("/indicaciones")
 async def indicaciones(request: Request):
-    return templates.TemplateResponse("indicaciones.html", {"request": request})
+    return {"status": "indicaciones recibidas"}
