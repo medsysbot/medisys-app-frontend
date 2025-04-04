@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #032b43; /* Todo el fondo azul */
+  background-color: #032b43;
   margin: 0;
   padding: 0;
   color: white;
@@ -12,8 +12,9 @@ header {
 }
 
 .logo-grande {
-  width: 100px;
-  margin-bottom: 0.5rem;
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 main {
@@ -23,7 +24,7 @@ main {
 .botonera {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
   max-width: 400px;
   margin: 0 auto;
 }
@@ -31,17 +32,17 @@ main {
 .boton {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.8rem;
-  padding: 1rem;
-  font-size: 1.1rem;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
   color: white;
   background-color: #0a66c2;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease;
 }
 
@@ -50,8 +51,8 @@ main {
 }
 
 .icono {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
 }
 
 footer {
