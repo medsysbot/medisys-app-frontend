@@ -3,44 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de Pacientes</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-
+<body class="form-body">
     <div class="form-container">
-
-        <img src="/static/icons/icono-registro.png" alt="Registro" style="width: 80px; height: 80px; margin-bottom: 10px;">
-
-        <h2>Registro de Pacientes</h2>
-
-        <form action="#" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="text" name="apellido" placeholder="Apellido" required>
-            <input type="text" name="documento" placeholder="Número de documento" required>
-            <input type="number" name="edad" placeholder="Edad" required>
-
-            <select name="sexo" required>
+        <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Icono Registro" class="icono-titulo">
+        <h1 class="form-title">Registro de Pacientes</h1>
+        <form>
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="apellido" placeholder="Apellido">
+            <input type="text" name="documento" placeholder="Número de documento">
+            <input type="number" name="edad" placeholder="Edad">
+            <select name="sexo">
                 <option value="">Seleccione el sexo</option>
                 <option value="masculino">Masculino</option>
                 <option value="femenino">Femenino</option>
                 <option value="otro">Otro</option>
             </select>
         </form>
-
     </div>
 
-    <!-- Botones flotantes -->
-    <div class="floating-buttons">
-        <button title="Guardar">
-            <img src="/static/icons/save.png" alt="Guardar" style="width: 45px; height: 45px;">
+    <div class="botones-flotantes">
+        <button class="btn redondo guardar">
+            <img src="{{ url_for('static', filename='icons/save.png') }}" alt="Guardar">
         </button>
-        <button title="Imprimir">
-            <img src="/static/icons/print.png" alt="Imprimir" style="width: 45px; height: 45px;">
+        <button class="btn redondo imprimir">
+            <img src="{{ url_for('static', filename='icons/print.png') }}" alt="Imprimir">
         </button>
-        <button title="Eliminar">
-            <img src="/static/icons/delete-icon.svg" alt="Eliminar" style="width: 45px; height: 45px;">
+        <button class="btn redondo eliminar">
+            <img src="{{ url_for('static', filename='icons/delete-icon.svg') }}" alt="Eliminar">
         </button>
     </div>
-
 </body>
 </html>
