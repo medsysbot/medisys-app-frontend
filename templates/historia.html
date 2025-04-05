@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Historia Clínica - MEDSYS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="home-body">
-    <div class="logo-container">
+<body class="form-body">
+    <div class="form-container">
         <img src="{{ url_for('static', filename='logo-app.png') }}" alt="Logo Medisys" class="logo-img">
-    </div>
+        <h1 class="form-title">Seleccionar Tipo de Historia Clínica</h1>
 
-    <h1 class="form-title">Seleccionar Tipo de Historia Clínica</h1>
-
-    <div class="botones-container">
-        <a href="/historia-completa" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia-clinica-completa.png') }}" alt="Historia Completa" class="icono-boton" style="width: 36px; height: 36px;">
-            Historia Clínica Completa
-        </a>
-        <a href="/historia-resumen" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia-clinica-resumida.png') }}" alt="Historia Resumida" class="icono-boton" style="width: 36px; height: 36px;">
-            Historia Clínica Resumida
-        </a>
-        <a href="/historia-evolucion" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/evolucion-diaria.png') }}" alt="Evolución Diaria" class="icono-boton" style="width: 36px; height: 36px;">
-            Evolución Diaria
-        </a>
+        <div class="botones-container">
+            <a href="/historia-completa" class="boton-principal">
+                <img src="{{ url_for('static', filename='icons/icono-historia-clinica-completa.png') }}" alt="Historia Completa" style="height: 50px;">
+                Historia Clínica Completa
+            </a>
+            <a href="/historia-resumen" class="boton-principal">
+                <img src="{{ url_for('static', filename='icons/icono-historia-clinica-resumida.png') }}" alt="Historia Resumida" style="height: 50px;">
+                Historia Clínica Resumida
+            </a>
+            <a href="/historia-evolucion" class="boton-principal">
+                <img src="{{ url_for('static', filename='icons/evolucion-diaria.png') }}" alt="Evolución Diaria" style="height: 50px;">
+                Evolución Diaria
+            </a>
+        </div>
     </div>
 </body>
 </html>
