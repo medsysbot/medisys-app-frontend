@@ -7,13 +7,12 @@
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <header class="encabezado-formulario">
-    <img src="/static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-formulario" />
+  <header>
+    <img src="/static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
   </header>
 
   <main>
     <h2>Registro de Pacientes</h2>
-
     <form class="formulario">
       <label class="etiqueta-campo">
         <span>🔎 Buscar paciente:</span>
@@ -22,7 +21,7 @@
 
       <label class="etiqueta-campo">
         <span>Nombre del Paciente:</span>
-        <input type="text" name="nombre" required />
+        <input type="text" name="nombre" required x-webkit-speech />
       </label>
 
       <label class="etiqueta-campo">
@@ -69,22 +68,21 @@
         <input type="text" name="contacto_emergencia" required />
       </label>
     </form>
-
-    <!-- Botones flotantes -->
-    <div class="botones-flotantes">
-      <button title="Enviar">
-        <img src="/static/icons/send.svg" alt="Enviar" />
-      </button>
-      <a href="/index" title="Volver al Menú">
-        <img src="/static/icons/home.svg" alt="Inicio" />
-      </a>
-      <button onclick="window.print()" title="Imprimir">
-        <img src="/static/icons/print.svg" alt="Imprimir" />
-      </button>
-      <button onclick="document.querySelector('form').reset()" title="Limpiar">
-        <img src="/static/icons/trash.svg" alt="Limpiar" />
-      </button>
-    </div>
   </main>
+
+  <div class="botones-flotantes">
+    <button title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
+    </button>
+    <a href="/index" title="Volver al Menú">
+      <img src="/static/icons/enviar.png" alt="Volver al Menú" />
+    </a>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    </button>
+    <button onclick="document.querySelector('form').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
+    </button>
+  </div>
 </body>
 </html>
