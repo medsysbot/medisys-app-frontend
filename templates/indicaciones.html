@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicaciones Médicas</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    .logo-grande {
+      width: 120px;
+      height: auto;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      color: white;
+    }
+
+    form {
+      background-color: #09394f;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .botones-flotantes {
+      position: fixed;
+      top: 50%;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      transform: translateY(-50%);
+    }
+
+    .botones-flotantes button {
+      background-color: #00cfe8;
+      border: none;
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .visor-pdf {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .visor-pdf iframe {
+      width: 90%;
+      height: 500px;
+      border: 2px solid #09394f;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/static/icons/icono-indicaciones.png" alt="Logo Indicaciones Médicas" class="logo-grande">
+  </header>
+
+  <main class="formulario">
+    <h2>Indicaciones Médicas</h2>
+    <form id="form-indicaciones">
+      <label for="nombre">Nombre del paciente:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="dni">DNI:</label>
+      <input type="text" id="dni" name="dni" required>
+
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" name="fecha" required>
+
+      <label for="indicaciones">Indicaciones:</label>
+      <textarea id="indicaciones" name="indicaciones" rows="6" required></textarea>
+    </form>
+
+    <div class="visor-pdf">
+      <h3>Vista previa del documento PDF:</h3>
+      <iframe src="/static/doc/indicaciones-medicas-generado.pdf" type="application/pdf"></iframe>
+    </div>
+  </main>
+
+  <div class="botones-flotantes">
+    <button type="submit" form="form-indicaciones" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar">
+    </button>
+    <button type="button" onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir">
+    </button>
+    <button type="button" onclick="document.getElementById('form-indicaciones').reset()" title="Limpiar">
+      <img src="/static/icons/borrar.png" alt="Limpiar">
+    </button>
+    <button type="button" title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar">
+    </button>
+  </div>
+
+  <script>
+    // Reconocimiento por voz simple (demo)
+    const fields = ['nombre', 'dni', 'fecha', 'indicaciones'];
+    fields.forEach(id => {
+      const input = document.getElementById(id);
+      input.addEventListener('dblclick', () => {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = 'es-ES';
+        recognition.start();
+        recognition.onresult = function(event) {
+          input.value = event.results[0][0].transcript;
+        };
+      });
+    });
+
+    // Generar PDF desde backend
+    document.querySelector('button[title="Guardar"]').addEventListener('click', async () => {
+      const nombre = document.getElementById('nombre').value;
+      const dni = document.getElementById('dni').value;
+      const fecha = document.getElementById('fecha').value;
+      const indicaciones = document.getElementById('indicaciones').value;
+
+      const response = await fetch('/generar-pdf-indicaciones', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, dni, fecha, indicaciones })
+      });
+
+      if (response.ok) {
+        alert('PDF generado correctamente');
+        document.querySelector('.visor-pdf iframe').src = '/static/doc/indicaciones-medicas-generado.pdf?' + new Date().getTime();
+      } else {
+        alert('Hubo un error al generar el PDF');
+      }
+    });
+  </script>
+</body>
+</html>
 
