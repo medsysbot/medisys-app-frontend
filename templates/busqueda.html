@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="static/styles.css">
   <style>
     .logo-grande {
-      width: 240px;
+      width: 120px;
       height: auto;
       margin-top: 30px;
       margin-bottom: 10px;
@@ -26,7 +26,7 @@
 </head>
 <body>
   <header>
-    <img src="static/logo-medsys.png" alt="Logo MEDISYS" class="logo-grande">
+    <img src="static/icons/busqueda.png" alt="Icono Búsqueda" class="logo-grande">
   </header>
 
   <main>
@@ -61,9 +61,18 @@
   </main>
 
   <div class="botones-flotantes">
+    <button title="Enviar">
+      <img src="static/icons/enviar.png" alt="Enviar">
+    </button>
     <a href="/" title="Volver al Menú">
       <img src="static/icons/inicio.png" alt="Inicio">
     </a>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="static/icons/imprimir.png" alt="Imprimir">
+    </button>
+    <button onclick="document.querySelector('form').reset()" title="Limpiar">
+      <img src="static/icons/borrar.png" alt="Limpiar">
+    </button>
   </div>
 </body>
 </html>
