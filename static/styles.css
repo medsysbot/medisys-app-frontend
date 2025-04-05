@@ -9,17 +9,17 @@ html, body {
 }
 
 header {
-  padding: 1.5rem 1rem;
+  padding: 1.2rem 1rem;
 }
 
 .logo-grande {
   width: 300px;
   height: auto;
-  margin-bottom: 0.5rem; /* Espacio reducido entre logo y botones */
+  margin-bottom: 0.2rem; /* Espacio ultra reducido entre logo y botones */
 }
 
 main {
-  padding: 0.5rem 1rem 2rem 1rem; /* Menos padding arriba del bloque principal */
+  padding: 0.3rem 1rem 2rem 1rem; /* Menos espacio arriba */
 }
 
 .botonera {
