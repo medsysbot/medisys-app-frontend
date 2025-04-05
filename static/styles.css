@@ -102,38 +102,7 @@ input, select {
   gap: 20px;
 }
 
-.menu-principal a {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #1976d2;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 15px 20px;
-  border-radius: 12px;
-  width: 300px;
-  transition: background-color 0.3s;
-}
-
-.menu-principal a:hover {
-  background-color: #2196f3;
-}
-
-.menu-principal img {
-  width: 28px;
-  height: 28px;
-  margin-right: 15px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  color: white;
-  font-size: 0.9rem;
-  margin-top: 40px;
-}
+.menu-principal a,
 .boton-principal {
   display: flex;
   align-items: center;
@@ -150,10 +119,25 @@ footer {
   text-decoration: none;
   font-size: 18px;
   box-sizing: border-box;
+  transition: background-color 0.3s;
 }
 
+.menu-principal a:hover,
+.boton-principal:hover {
+  background-color: #2196f3;
+}
+
+.menu-principal img,
 .boton-principal img.icono-boton {
   width: 45px;
   height: 45px;
   object-fit: contain;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: 40px;
 }
