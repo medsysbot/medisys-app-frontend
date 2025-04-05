@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turnos Médicos</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <img src="/static/icons/icono-turnos.png" alt="Turnos Médicos" class="logo-grande" />
+  </header>
+
+  <main>
+    <h2>Asignar Turno</h2>
+    <form class="formulario">
+      <label>Nombre Completo:
+        <input type="text" name="nombre_completo" required />
+      </label>
+      <label>DNI:
+        <input type="text" name="dni" required />
+      </label>
+      <label>Teléfono:
+        <input type="tel" name="telefono" required />
+      </label>
+      <label>Fecha del Turno:
+        <input type="date" name="fecha_turno" required />
+      </label>
+    </form>
+  </main>
+
+  <!-- Botones flotantes -->
+  <div class="botones-flotantes">
+    <button title="Guardar">
+      <img src="/static/icons/send.svg" alt="Enviar" />
+    </button>
+    <a href="/" title="Volver al Menú">
+      <img src="/static/icons/home.svg" alt="Inicio" />
+    </a>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/print.svg" alt="Imprimir" />
+    </button>
+    <button onclick="document.querySelector('form').reset()" title="Descartar">
+      <img src="/static/icons/trash.svg" alt="Limpiar" />
+    </button>
+  </div>
+</body>
+</html>
 
