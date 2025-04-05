@@ -13,10 +13,36 @@
       margin-bottom: 10px;
     }
 
+    .menu-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .boton-menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #1976d2;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 15px 20px;
+      border-radius: 12px;
+      width: 240px; /* Más angosto, apenas más que el ícono */
+      transition: background-color 0.3s;
+    }
+
+    .boton-menu:hover {
+      background-color: #2196f3;
+    }
+
     .boton-menu img {
-      width: 56px; /* Doble de 28px */
+      width: 56px; /* Ícono grande */
       height: 56px;
-      margin-right: 15px;
+      margin-right: 12px;
     }
   </style>
 </head>
