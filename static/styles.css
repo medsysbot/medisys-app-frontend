@@ -1,72 +1,81 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #032b3d;
+  background-color: #042f44;
   color: white;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  text-align: center;
 }
 
 header {
-  padding: 20px 0;
+  text-align: center;
+  padding: 20px;
 }
 
 .logo-formulario {
-  width: 100px; /* Logo más chico */
+  width: 200px; /* Aumentado al doble del tamaño anterior */
   margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 28px;
-  margin: 10px 0 30px 0;
-}
-
-.formulario {
+main {
   max-width: 600px;
   margin: 0 auto;
+  padding: 20px;
   text-align: left;
 }
 
-.etiqueta-campo {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-  font-size: 18px;
+h2 {
+  text-align: center;
+  font-size: 32px; /* Aumentado para que sea más visible */
   font-weight: bold;
+  margin-bottom: 30px;
 }
 
-.etiqueta-campo input,
-.etiqueta-campo select {
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 18px; /* Letras más grandes */
+  font-weight: bold; /* En negrita */
+}
+
+input,
+select {
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
   margin-top: 5px;
-  background-color: white;
-  color: black;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .botones-flotantes {
   position: fixed;
-  right: 20px;
-  top: 200px;
+  top: 50%;
+  right: 10px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  transform: translateY(-50%);
+  z-index: 1000;
 }
 
 .botones-flotantes button,
 .botones-flotantes a {
-  background-color: #03c4f3;
-  border: none;
-  border-radius: 50%;
   width: 60px;
   height: 60px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  background-color: #00cfe8;
+  border: none;
   display: flex;
-  justify-content: center;
   align-items: center;
-  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.botones-flotantes button:hover,
+.botones-flotantes a:hover {
+  transform: scale(1.1);
 }
 
 .botones-flotantes img {
@@ -74,17 +83,8 @@ h2 {
   height: 28px;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .formulario {
-    padding: 0 15px;
-  }
-
-  .botones-flotantes {
-    top: auto;
-    bottom: 20px;
-    flex-direction: row;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+button img,
+a img {
+  width: 24px;
+  height: 24px;
 }
