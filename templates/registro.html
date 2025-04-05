@@ -4,15 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Pacientes</title>
-  <link rel="stylesheet" href="static/styles.css" />
+  <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
   <header>
-    <img src="static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
+    <img src="/static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
   </header>
 
   <main>
     <h2>Registro de Pacientes</h2>
+
+    <!-- Buscador -->
+    <div class="formulario">
+      <label>🔎 Buscar paciente:
+        <input type="search" name="buscar" placeholder="Buscar por nombre o DNI..." />
+      </label>
+    </div>
+
+    <!-- Formulario -->
     <form class="formulario">
       <label>Nombre del Paciente:
         <input type="text" name="nombre" required />
@@ -59,17 +68,17 @@
 
   <!-- Botones flotantes -->
   <div class="botones-flotantes">
-    <button title="Enviar">
-      <img src="static/icons/send.svg" alt="Enviar" />
+    <button title="Guardar">
+      <img src="/static/icons/send.svg" alt="Enviar" />
     </button>
-    <a href="index.html" title="Volver al Menú">
-      <img src="static/icons/home.svg" alt="Inicio" />
+    <a href="/" title="Volver al Menú">
+      <img src="/static/icons/home.svg" alt="Inicio" />
     </a>
     <button onclick="window.print()" title="Imprimir">
-      <img src="static/icons/print.svg" alt="Imprimir" />
+      <img src="/static/icons/print.svg" alt="Imprimir" />
     </button>
     <button onclick="document.querySelector('form').reset()" title="Limpiar">
-      <img src="static/icons/trash.svg" alt="Limpiar" />
+      <img src="/static/icons/trash.svg" alt="Limpiar" />
     </button>
   </div>
 </body>
