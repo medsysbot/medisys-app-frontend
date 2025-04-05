@@ -14,8 +14,9 @@
   <main>
     <h2>Registro de Pacientes</h2>
     <form class="formulario">
+
       <div class="campo">
-        <label for="buscar">🔎 Buscar paciente:</label>
+        <label for="buscar"><span class="emoji">🔎</span> Buscar paciente:</label>
         <input type="search" id="buscar" name="buscar" placeholder="Buscar por nombre o DNI..." />
       </div>
 
@@ -70,11 +71,12 @@
     </form>
   </main>
 
+  <!-- Botones flotantes al costado -->
   <div class="botones-flotantes">
     <button title="Enviar">
       <img src="static/icons/send.svg" alt="Enviar" />
     </button>
-    <a href="/" title="Volver al Menú">
+    <a href="index.html" title="Volver al Menú">
       <img src="static/icons/home.svg" alt="Inicio" />
     </a>
     <button onclick="window.print()" title="Imprimir">
