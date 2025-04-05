@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Historia Clínica - MEDISYS</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <title>MEDISYS</title>
+  <link rel="stylesheet" href="static/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
   <style>
     body {
@@ -16,9 +16,10 @@
     }
 
     .logo-grande {
-      width: 180px;
-      margin: 20px auto;
-      display: block;
+      width: 240px;
+      height: auto;
+      margin-top: 30px;
+      margin-bottom: 10px;
     }
 
     h1.titulo {
@@ -27,14 +28,14 @@
       font-weight: 200;
       font-size: 24px;
       margin-top: 10px;
+      margin-bottom: 25px;
     }
 
-    .botonera {
+    .menu-principal {
       display: flex;
       flex-direction: column;
-      gap: 20px;
       align-items: center;
-      margin-top: 30px;
+      gap: 20px;
     }
 
     a.boton-menu {
@@ -66,25 +67,45 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="/static/icons/icono-historia-clinica-completa.png" alt="Logo Historia Clínica" class="logo-grande">
-    <h1 class="titulo">Seleccionar Tipo de Historia Clínica</h1>
-    <div class="botonera">
-      <a href="/historia-completa" class="boton-menu">
-        <img src="/static/icons/icono-historia-clinica-completa.png" class="icono-boton">
-        Historia Clínica Completa
-      </a>
+  <header>
+    <img src="static/logo-medsys.png" alt="Logo MEDISYS" class="logo-grande">
+    <h1 class="titulo">Salud inteligente para un mundo real.</h1>
+  </header>
 
-      <a href="/historia-resumen" class="boton-menu">
-        <img src="/static/icons/icono-historia-clinica-resumida.png" class="icono-boton">
-        Historia Clínica Resumida
-      </a>
+  <main class="menu-principal">
+    <a href="/registro" class="boton-menu">
+      <img src="static/icons/icono-registro.png" alt="Registro">
+      Registro de Pacientes
+    </a>
 
-      <a href="/historia-evolucion" class="boton-menu">
-        <img src="/static/icons/evolucion-diaria.png" class="icono-boton">
-        Evolución Diaria
-      </a>
-    </div>
-  </div>
+    <a href="/historia" class="boton-menu">
+      <img src="static/icons/icono-historia.png" alt="Historia Clínica">
+      Historia Clínica
+    </a>
+
+    <a href="/receta" class="boton-menu">
+      <img src="static/icons/icono-receta.png" alt="Receta">
+      Receta Electrónica
+    </a>
+
+    <a href="/indicaciones" class="boton-menu">
+      <img src="static/icons/icono-indicaciones.png" alt="Indicaciones">
+      Indicaciones Médicas
+    </a>
+
+    <a href="/turnos" class="boton-menu">
+      <img src="static/icons/icono-turnos.png" alt="Turnos">
+      Turnos
+    </a>
+
+    <a href="/busqueda" class="boton-menu">
+      <img src="static/icons/busqueda.png" alt="Búsqueda">
+      Búsqueda de Pacientes
+    </a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MEDISYS</p>
+  </footer>
 </body>
 </html>
