@@ -4,87 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Pacientes</title>
-  <link rel="stylesheet" href="static/styles.css" />
+  <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <header>
-    <img src="static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
+  <header class="encabezado-formulario">
+    <img src="/static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-formulario" />
   </header>
 
   <main>
     <h2>Registro de Pacientes</h2>
+
     <form class="formulario">
+      <label class="etiqueta-campo">
+        <span>🔎 Buscar paciente:</span>
+        <input type="search" name="buscar" placeholder="Buscar por nombre o DNI..." />
+      </label>
 
-      <div class="campo">
-        <label for="buscar"><span class="emoji">🔎</span> Buscar paciente:</label>
-        <input type="search" id="buscar" name="buscar" placeholder="Buscar por nombre o DNI..." />
-      </div>
+      <label class="etiqueta-campo">
+        <span>Nombre del Paciente:</span>
+        <input type="text" name="nombre" required />
+      </label>
 
-      <div class="campo">
-        <label for="nombre">Nombre del Paciente:</label>
-        <input type="text" id="nombre" name="nombre" required />
-      </div>
+      <label class="etiqueta-campo">
+        <span>Fecha de Nacimiento:</span>
+        <input type="date" name="fecha_nacimiento" required />
+      </label>
 
-      <div class="campo">
-        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
-      </div>
+      <label class="etiqueta-campo">
+        <span>DNI:</span>
+        <input type="text" name="dni" required />
+      </label>
 
-      <div class="campo">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required />
-      </div>
+      <label class="etiqueta-campo">
+        <span>Dirección:</span>
+        <input type="text" name="direccion" required />
+      </label>
 
-      <div class="campo">
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required />
-      </div>
+      <label class="etiqueta-campo">
+        <span>Teléfono:</span>
+        <input type="tel" name="telefono" required />
+      </label>
 
-      <div class="campo">
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required />
-      </div>
-
-      <div class="campo">
-        <label for="obra_social">Obra Social:</label>
-        <select id="obra_social" name="obra_social" required>
+      <label class="etiqueta-campo">
+        <span>Obra Social:</span>
+        <select name="obra_social" required>
           <option value="">Seleccionar</option>
           <option value="si">Sí</option>
           <option value="no">No</option>
         </select>
-      </div>
+      </label>
 
-      <div class="campo">
-        <label for="sexo">Sexo:</label>
-        <select id="sexo" name="sexo" required>
+      <label class="etiqueta-campo">
+        <span>Sexo:</span>
+        <select name="sexo" required>
           <option value="">Seleccionar</option>
           <option value="femenino">Femenino</option>
           <option value="masculino">Masculino</option>
           <option value="no_binario">No Binario</option>
         </select>
-      </div>
+      </label>
 
-      <div class="campo">
-        <label for="contacto_emergencia">Contacto de Emergencia:</label>
-        <input type="text" id="contacto_emergencia" name="contacto_emergencia" required />
-      </div>
+      <label class="etiqueta-campo">
+        <span>Contacto de Emergencia:</span>
+        <input type="text" name="contacto_emergencia" required />
+      </label>
     </form>
-  </main>
 
-  <!-- Botones flotantes al costado -->
-  <div class="botones-flotantes">
-    <button title="Enviar">
-      <img src="static/icons/send.svg" alt="Enviar" />
-    </button>
-    <a href="index.html" title="Volver al Menú">
-      <img src="static/icons/home.svg" alt="Inicio" />
-    </a>
-    <button onclick="window.print()" title="Imprimir">
-      <img src="static/icons/print.svg" alt="Imprimir" />
-    </button>
-    <button onclick="document.querySelector('form').reset()" title="Limpiar">
-      <img src="static/icons/trash.svg" alt="Limpiar" />
-    </button>
-  </div>
+    <!-- Botones flotantes -->
+    <div class="botones-flotantes">
+      <button title="Enviar">
+        <img src="/static/icons/send.svg" alt="Enviar" />
+      </button>
+      <a href="/index" title="Volver al Menú">
+        <img src="/static/icons/home.svg" alt="Inicio" />
+      </a>
+      <button onclick="window.print()" title="Imprimir">
+        <img src="/static/icons/print.svg" alt="Imprimir" />
+      </button>
+      <button onclick="document.querySelector('form').reset()" title="Limpiar">
+        <img src="/static/icons/trash.svg" alt="Limpiar" />
+      </button>
+    </div>
+  </main>
 </body>
 </html>
