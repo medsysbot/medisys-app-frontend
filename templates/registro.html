@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Registro de Pacientes</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Pacientes</title>
+  <link rel="stylesheet" href="static/styles.css" />
 </head>
-<body class="form-body">
-    <div class="form-container">
-        <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Icono Registro" class="icono-titulo">
-        <h1 class="form-title">Registro de Pacientes</h1>
-        <form>
-            <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="apellido" placeholder="Apellido">
-            <input type="text" name="documento" placeholder="Número de documento">
-            <input type="number" name="edad" placeholder="Edad">
-            <select name="sexo">
-                <option value="">Seleccione el sexo</option>
-                <option value="masculino">Masculino</option>
-                <option value="femenino">Femenino</option>
-                <option value="otro">Otro</option>
-            </select>
-        </form>
-    </div>
+<body>
+  <header>
+    <img src="static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
+  </header>
 
-    <div class="botones-flotantes">
-        <button class="btn redondo guardar">
-            <img src="{{ url_for('static', filename='icons/save.png') }}" alt="Guardar">
-        </button>
-        <button class="btn redondo imprimir">
-            <img src="{{ url_for('static', filename='icons/print.png') }}" alt="Imprimir">
-        </button>
-        <button class="btn redondo eliminar">
-            <img src="{{ url_for('static', filename='icons/delete-icon.svg') }}" alt="Eliminar">
-        </button>
-    </div>
+  <main>
+    <h2>Registro de Pacientes</h2>
+    <form class="formulario">
+      <label>Nombre del Paciente:
+        <input type="text" name="nombre" required />
+      </label>
+
+      <label>Fecha de Nacimiento:
+        <input type="date" name="fecha_nacimiento" required />
+      </label>
+
+      <label>DNI:
+        <input type="text" name="dni" required />
+      </label>
+
+      <label>Dirección:
+        <input type="text" name="direccion" required />
+      </label>
+
+      <label>Teléfono:
+        <input type="tel" name="telefono" required />
+      </label>
+
+      <label>Obra Social:
+        <select name="obra_social" required>
+          <option value="">Seleccionar</option>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
+        </select>
+      </label>
+
+      <label>Sexo:
+        <select name="sexo" required>
+          <option value="">Seleccionar</option>
+          <option value="femenino">Femenino</option>
+          <option value="masculino">Masculino</option>
+          <option value="no_binario">No Binario</option>
+        </select>
+      </label>
+
+      <label>Contacto de Emergencia:
+        <input type="text" name="contacto_emergencia" required />
+      </label>
+    </form>
+  </main>
+
+  <!-- Botones flotantes -->
+  <div class="botones-flotantes">
+    <button title="Enviar">
+      <img src="static/icons/send.svg" alt="Enviar" />
+    </button>
+    <a href="index.html" title="Volver al Menú">
+      <img src="static/icons/home.svg" alt="Inicio" />
+    </a>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="static/icons/print.svg" alt="Imprimir" />
+    </button>
+    <button onclick="document.querySelector('form').reset()" title="Limpiar">
+      <img src="static/icons/trash.svg" alt="Limpiar" />
+    </button>
+  </div>
 </body>
 </html>
