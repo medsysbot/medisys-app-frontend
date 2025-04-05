@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda de Pacientes</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <style>
+    .resultado-seccion {
+      background-color: #115173;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      border-radius: 10px;
+      color: white;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="static/logo-medsys.png" alt="Logo MEDISYS" class="logo-grande">
+  </header>
+
+  <main>
+    <h2>Búsqueda de Pacientes</h2>
+    <form class="formulario">
+      <label>Buscar por Nombre o DNI:
+        <input type="search" name="busqueda" placeholder="Ej: Juan Pérez o 12345678">
+      </label>
+    </form>
+
+    <!-- Simulación de resultados -->
+    <section class="resultado-seccion">
+      <h3>📚 Historia Clínica</h3>
+      <p>No hay datos cargados todavía para este paciente.</p>
+    </section>
+
+    <section class="resultado-seccion">
+      <h3>📅 Turnos</h3>
+      <ul>
+        <li>15/04/2025 - Consultorio</li>
+        <li>20/03/2025 - Control mensual</li>
+      </ul>
+    </section>
+
+    <section class="resultado-seccion">
+      <h3>📄 Recetas Electrónicas</h3>
+      <ul>
+        <li>Ibuprofeno 600 mg - 10/04/2025</li>
+        <li>Amoxicilina 500 mg - 15/03/2025</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="botones-flotantes">
+    <a href="/" title="Volver al Menú">
+      <img src="static/icons/inicio.png" alt="Inicio">
+    </a>
+  </div>
+</body>
+</html>
 
