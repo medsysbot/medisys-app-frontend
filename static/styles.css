@@ -1,9 +1,41 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #032b43;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+header {
+  padding: 2rem 1rem;
+}
+
+.logo-grande {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+main {
+  padding: 2rem;
+}
+
+.botonera {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
 .boton {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1rem;
-  padding: 0.8rem 1.2rem;
+  padding: 0.9rem 1.2rem;
   font-size: 1.3rem;
   font-weight: bold;
   color: white;
@@ -11,11 +43,25 @@
   border: none;
   border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #094a8f;
 }
 
 .icono {
   width: 48px;
   height: 48px;
+}
+
+footer {
+  color: white;
+  padding: 1rem;
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #032b43;
 }
