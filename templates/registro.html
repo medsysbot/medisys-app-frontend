@@ -4,81 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Pacientes</title>
-  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="stylesheet" href="static/styles.css" />
 </head>
 <body>
   <header>
-    <img src="/static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
+    <img src="static/icons/icono-registro.png" alt="Registro de Pacientes" class="logo-grande" />
   </header>
 
   <main>
     <h2>Registro de Pacientes</h2>
-
-    <!-- Buscador -->
-    <div class="formulario">
-      <label>🔎 Buscar paciente:
-        <input type="search" name="buscar" placeholder="Buscar por nombre o DNI..." />
-      </label>
-    </div>
-
-    <!-- Formulario -->
     <form class="formulario">
-      <label>Nombre del Paciente:
-        <input type="text" name="nombre" required />
-      </label>
+      <div class="campo">
+        <label for="buscar">🔎 Buscar paciente:</label>
+        <input type="search" id="buscar" name="buscar" placeholder="Buscar por nombre o DNI..." />
+      </div>
 
-      <label>Fecha de Nacimiento:
-        <input type="date" name="fecha_nacimiento" required />
-      </label>
+      <div class="campo">
+        <label for="nombre">Nombre del Paciente:</label>
+        <input type="text" id="nombre" name="nombre" required />
+      </div>
 
-      <label>DNI:
-        <input type="text" name="dni" required />
-      </label>
+      <div class="campo">
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required />
+      </div>
 
-      <label>Dirección:
-        <input type="text" name="direccion" required />
-      </label>
+      <div class="campo">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required />
+      </div>
 
-      <label>Teléfono:
-        <input type="tel" name="telefono" required />
-      </label>
+      <div class="campo">
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" required />
+      </div>
 
-      <label>Obra Social:
-        <select name="obra_social" required>
+      <div class="campo">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required />
+      </div>
+
+      <div class="campo">
+        <label for="obra_social">Obra Social:</label>
+        <select id="obra_social" name="obra_social" required>
           <option value="">Seleccionar</option>
           <option value="si">Sí</option>
           <option value="no">No</option>
         </select>
-      </label>
+      </div>
 
-      <label>Sexo:
-        <select name="sexo" required>
+      <div class="campo">
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
           <option value="">Seleccionar</option>
           <option value="femenino">Femenino</option>
           <option value="masculino">Masculino</option>
           <option value="no_binario">No Binario</option>
         </select>
-      </label>
+      </div>
 
-      <label>Contacto de Emergencia:
-        <input type="text" name="contacto_emergencia" required />
-      </label>
+      <div class="campo">
+        <label for="contacto_emergencia">Contacto de Emergencia:</label>
+        <input type="text" id="contacto_emergencia" name="contacto_emergencia" required />
+      </div>
     </form>
   </main>
 
-  <!-- Botones flotantes -->
   <div class="botones-flotantes">
-    <button title="Guardar">
-      <img src="/static/icons/send.svg" alt="Enviar" />
+    <button title="Enviar">
+      <img src="static/icons/send.svg" alt="Enviar" />
     </button>
     <a href="/" title="Volver al Menú">
-      <img src="/static/icons/home.svg" alt="Inicio" />
+      <img src="static/icons/home.svg" alt="Inicio" />
     </a>
     <button onclick="window.print()" title="Imprimir">
-      <img src="/static/icons/print.svg" alt="Imprimir" />
+      <img src="static/icons/print.svg" alt="Imprimir" />
     </button>
     <button onclick="document.querySelector('form').reset()" title="Limpiar">
-      <img src="/static/icons/trash.svg" alt="Limpiar" />
+      <img src="static/icons/trash.svg" alt="Limpiar" />
     </button>
   </div>
 </body>
