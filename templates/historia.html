@@ -4,13 +4,53 @@
   <meta charset="UTF-8">
   <title>Historia Clínica - MEDSYS</title>
   <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    .logo-grande {
+      width: 180px;
+      margin: 20px auto;
+      display: block;
+    }
+    .botonera {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .boton-principal {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      background-color: #4A90E2;
+      color: white;
+      font-weight: bold;
+      padding: 15px 25px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 400px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .boton-principal img.icono-boton {
+      width: 36px;
+      height: 36px;
+    }
+    h1.titulo {
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    body {
+      background-color: #083C4A;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <!-- Logo de Historia Clínica -->
-    <div class="logo-container">
-      <img src="/static/icons/icono-historia-clinica-completa.png" alt="Logo Historia Clínica" class="logo-grande">
-    </div>
+    <img src="/static/icons/icono-historia-clinica-completa.png" alt="Logo Historia Clínica" class="logo-grande">
 
     <!-- Título -->
     <h1 class="titulo">Seleccionar Tipo de Historia Clínica</h1>
