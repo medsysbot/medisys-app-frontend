@@ -1,114 +1,42 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MEDISYS</title>
-  <link rel="stylesheet" href="static/styles.css" />
+  <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
-  <header>
-    <img src="static/icons/logo.png" alt="Logo MEDISYS" class="logo-grande" />
+  <header class="header">
+    <img src="static/logo.png" alt="Logo MEDISYS" class="logo-grande">
+    <h1>MEDISYS</h1>
   </header>
 
-  <main>
-    <h1 class="titulo-principal">MEDISYS</h1>
-    <div class="botones-menu">
-      <a href="/registro" class="boton-menu">
-        <img src="static/icons/registro.png" alt="Registro" /> Registro de Pacientes
-      </a>
-      <a href="/historia" class="boton-menu">
-        <img src="static/icons/historia.png" alt="Historia" /> Historia Clínica
-      </a>
-      <a href="/receta" class="boton-menu">
-        <img src="static/icons/receta.png" alt="Receta" /> Receta Electrónica
-      </a>
-      <a href="/indicaciones" class="boton-menu">
-        <img src="static/icons/indicaciones.png" alt="Indicaciones" /> Indicaciones Médicas
-      </a>
-      <a href="/turnos" class="boton-menu">
-        <img src="static/icons/turnos.png" alt="Turnos" /> Turnos
-      </a>
-    </div>
+  <main class="menu-principal">
+    <a href="/registro" class="boton-menu">
+      <img src="static/icons/registro.png" alt="Registro" class="icono-boton">
+      Registro de Pacientes
+    </a>
+    <a href="/historia" class="boton-menu">
+      <img src="static/icons/historia.png" alt="Historia" class="icono-boton">
+      Historia Clínica
+    </a>
+    <a href="/receta" class="boton-menu">
+      <img src="static/icons/receta.png" alt="Receta" class="icono-boton">
+      Receta Electrónica
+    </a>
+    <a href="/indicaciones" class="boton-menu">
+      <img src="static/icons/indicaciones.png" alt="Indicaciones" class="icono-boton">
+      Indicaciones Médicas
+    </a>
+    <a href="/turnos" class="boton-menu">
+      <img src="static/icons/turnos.png" alt="Turnos" class="icono-boton">
+      Turnos
+    </a>
   </main>
 
-  <footer>
-    <p>© 2025 MEDISYS</p>
+  <footer class="footer">
+    <p>&copy; 2025 MEDISYS</p>
   </footer>
-</body>
-</html>
-
-
-<!-- registro.html -->
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro de Pacientes</title>
-  <link rel="stylesheet" href="static/styles.css" />
-</head>
-<body>
-  <header>
-    <img src="static/icons/registro.png" alt="Registro de Pacientes" class="logo-grande" />
-  </header>
-
-  <main>
-    <h2 class="titulo-principal">Registro de Pacientes</h2>
-    <form class="formulario">
-      <label><span>🔍 Buscar paciente:</span>
-        <input type="search" name="buscar" placeholder="Buscar por nombre o DNI..." />
-      </label>
-      <label><span>Nombre del Paciente:</span>
-        <input type="text" name="nombre" required />
-      </label>
-      <label><span>Fecha de Nacimiento:</span>
-        <input type="date" name="fecha_nacimiento" required />
-      </label>
-      <label><span>DNI:</span>
-        <input type="text" name="dni" required />
-      </label>
-      <label><span>Dirección:</span>
-        <input type="text" name="direccion" required />
-      </label>
-      <label><span>Teléfono:</span>
-        <input type="tel" name="telefono" required />
-      </label>
-      <label><span>Obra Social:</span>
-        <select name="obra_social" required>
-          <option value="">Seleccionar</option>
-          <option value="si">Sí</option>
-          <option value="no">No</option>
-        </select>
-      </label>
-      <label><span>Sexo:</span>
-        <select name="sexo" required>
-          <option value="">Seleccionar</option>
-          <option value="femenino">Femenino</option>
-          <option value="masculino">Masculino</option>
-          <option value="no_binario">No Binario</option>
-        </select>
-      </label>
-      <label><span>Contacto de Emergencia:</span>
-        <input type="text" name="contacto_emergencia" required />
-      </label>
-    </form>
-
-    <div class="botones-flotantes">
-      <button title="Enviar">
-        <img src="static/icons/enviar.png" alt="Enviar" />
-      </button>
-      <a href="/" title="Inicio">
-        <img src="static/icons/inicio.png" alt="Inicio" />
-      </a>
-      <button onclick="window.print()" title="Imprimir">
-        <img src="static/icons/imprimir.png" alt="Imprimir" />
-      </button>
-      <button onclick="document.querySelector('form').reset()" title="Limpiar">
-        <img src="static/icons/borrar.png" alt="Limpiar" />
-      </button>
-    </div>
-  </main>
 </body>
 </html>
