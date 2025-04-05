@@ -102,36 +102,29 @@ input, select {
   gap: 20px;
 }
 
-.menu-principal a,
-.boton-principal {
+.menu-principal a {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
-  background-color: #4A90E2;
+  background-color: #1976d2;
   color: white;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 12px;
-  width: 80%;
-  max-width: 400px;
-  height: 72px;
   text-decoration: none;
-  font-size: 18px;
-  box-sizing: border-box;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 15px 20px;
+  border-radius: 12px;
+  width: 300px;
   transition: background-color 0.3s;
 }
 
-.menu-principal a:hover,
-.boton-principal:hover {
+.menu-principal a:hover {
   background-color: #2196f3;
 }
 
-.menu-principal img,
-.boton-principal img.icono-boton {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
+.menu-principal img {
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
 }
 
 footer {
