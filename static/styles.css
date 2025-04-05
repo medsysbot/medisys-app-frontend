@@ -13,13 +13,13 @@ header {
 }
 
 .logo-grande {
-  width: 180px;
+  width: 300px;
   height: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem; /* Espacio reducido entre logo y botones */
 }
 
 main {
-  padding: 1.5rem 1rem 2rem 1rem;
+  padding: 0.5rem 1rem 2rem 1rem; /* Menos padding arriba del bloque principal */
 }
 
 .botonera {
