@@ -134,3 +134,26 @@ footer {
   font-size: 0.9rem;
   margin-top: 40px;
 }
+.boton-principal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  background-color: #4A90E2;
+  color: white;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 400px;
+  height: 72px;
+  text-decoration: none;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.boton-principal img.icono-boton {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
