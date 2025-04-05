@@ -1,37 +1,79 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>MEDSYS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <title>Historia Clínica - MEDSYS</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <style>
+    .logo-grande {
+      width: 180px;
+      margin: 20px auto;
+      display: block;
+    }
+    .botonera {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-top: 30px;
+    }
+    .boton-principal {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 20px;
+      background-color: #4A90E2;
+      color: white;
+      font-weight: bold;
+      padding: 15px 25px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 400px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .boton-principal img.icono-boton {
+      width: 36px;
+      height: 36px;
+    }
+    h1.titulo {
+      text-align: center;
+      color: white;
+      font-size: 24px;
+    }
+    body {
+      background-color: #083C4A;
+      font-family: sans-serif;
+    }
+  </style>
 </head>
-<body class="home-body">
-    <div class="logo-container">
-        <img src="{{ url_for('static', filename='logo-app.png') }}" alt="Logo Medisys" class="logo-img">
-    </div>
+<body>
+  <div class="container">
+    <!-- Logo de Historia Clínica -->
+    <img src="/static/icons/icono-historia-clinica-completa.png" alt="Logo Historia Clínica" class="logo-grande">
 
-    <div class="botones-container">
-        <a href="/registro" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Registro" class="icono-boton">
-            Registro de pacientes
-        </a>
-        <a href="/historia" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia.png') }}" alt="Historia" class="icono-boton">
-            Historia clínica
-        </a>
-        <a href="/recetas" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-receta.png') }}" alt="Recetas" class="icono-boton">
-            Recetas
-        </a>
-        <a href="/indicaciones" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-indicaciones.png') }}" alt="Indicaciones" class="icono-boton">
-            Indicaciones médicas
-        </a>
-        <a href="/turnos" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-turnos.png') }}" alt="Turnos" class="icono-boton">
-            Turnos
-        </a>
+    <!-- Título -->
+    <h1 class="titulo">Seleccionar Tipo de Historia Clínica</h1>
+
+    <!-- Botones de selección -->
+    <div class="botonera">
+
+      <a href="/historia-completa" class="boton-principal">
+        <img src="/static/icons/icono-historia-clinica-completa.png" class="icono-boton">
+        Historia Clínica Completa
+      </a>
+
+      <a href="/historia-resumen" class="boton-principal">
+        <img src="/static/icons/icono-historia-clinica-resumida.png" class="icono-boton">
+        Historia Clínica Resumida
+      </a>
+
+      <a href="/historia-evolucion" class="boton-principal">
+        <img src="/static/icons/evolucion-diaria.png" class="icono-boton">
+        Evolución Diaria
+      </a>
+
     </div>
+  </div>
 </body>
 </html>
