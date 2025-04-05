@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Historia Clínica - MEDSYS</title>
+    <title>MEDSYS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -12,22 +12,25 @@
     </div>
 
     <div class="botones-container">
-        <img src="{{ url_for('static', filename='icons/icono-historia-clinica-completa.png') }}" alt="Icono Historia Completa" class="icono-superior">
-        <h1 class="form-title">Seleccionar Tipo de Historia Clínica</h1>
-
-        <a href="/historia-completa" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia-clinica-completa.png') }}" alt="Historia Completa" class="icono-boton-grande">
-            Historia Clínica Completa
+        <a href="/registro" class="boton-principal">
+            <img src="{{ url_for('static', filename='icons/icono-registro.png') }}" alt="Registro" class="icono-boton">
+            Registro de pacientes
         </a>
-
-        <a href="/historia-resumen" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/icono-historia-clinica-resumida.png') }}" alt="Historia Resumida" class="icono-boton-grande">
-            Historia Clínica Resumida
+        <a href="/historia" class="boton-principal">
+            <img src="{{ url_for('static', filename='icons/icono-historia.png') }}" alt="Historia" class="icono-boton">
+            Historia clínica
         </a>
-
-        <a href="/historia-evolucion" class="boton-principal">
-            <img src="{{ url_for('static', filename='icons/evolucion-diaria.png') }}" alt="Evolución Diaria" class="icono-boton-grande">
-            Evolución Diaria
+        <a href="/recetas" class="boton-principal">
+            <img src="{{ url_for('static', filename='icons/icono-receta.png') }}" alt="Recetas" class="icono-boton">
+            Recetas
+        </a>
+        <a href="/indicaciones" class="boton-principal">
+            <img src="{{ url_for('static', filename='icons/icono-indicaciones.png') }}" alt="Indicaciones" class="icono-boton">
+            Indicaciones médicas
+        </a>
+        <a href="/turnos" class="boton-principal">
+            <img src="{{ url_for('static', filename='icons/icono-turnos.png') }}" alt="Turnos" class="icono-boton">
+            Turnos
         </a>
     </div>
 </body>
