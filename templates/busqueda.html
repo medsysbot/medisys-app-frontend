@@ -14,13 +14,30 @@
     }
 
     .resultado-seccion {
-      background-color: #115173;
-      padding: 20px;
+      background-color: transparent;
       margin: 20px auto;
       max-width: 700px;
       border-radius: 10px;
-      color: white;
       text-align: left;
+    }
+
+    .resultado-titulo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #115173;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px 10px 0 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .resultado-contenido {
+      background-color: white;
+      padding: 15px 20px;
+      border-radius: 0 0 10px 10px;
+      color: black;
     }
   </style>
 </head>
@@ -39,24 +56,36 @@
 
     <!-- Simulación de resultados -->
     <section class="resultado-seccion">
-      <h3>📚 Historia Clínica</h3>
-      <p>No hay datos cargados todavía para este paciente.</p>
+      <div class="resultado-titulo">
+        <span>📚</span> Historia Clínica
+      </div>
+      <div class="resultado-contenido">
+        No hay datos cargados todavía para este paciente.
+      </div>
     </section>
 
     <section class="resultado-seccion">
-      <h3>📅 Turnos</h3>
-      <ul>
-        <li>15/04/2025 - Consultorio</li>
-        <li>20/03/2025 - Control mensual</li>
-      </ul>
+      <div class="resultado-titulo">
+        <span>📅</span> Turnos
+      </div>
+      <div class="resultado-contenido">
+        <ul>
+          <li>15/04/2025 - Consultorio</li>
+          <li>20/03/2025 - Control mensual</li>
+        </ul>
+      </div>
     </section>
 
     <section class="resultado-seccion">
-      <h3>📄 Recetas Electrónicas</h3>
-      <ul>
-        <li>Ibuprofeno 600 mg - 10/04/2025</li>
-        <li>Amoxicilina 500 mg - 15/03/2025</li>
-      </ul>
+      <div class="resultado-titulo">
+        <span>📄</span> Recetas Electrónicas
+      </div>
+      <div class="resultado-contenido">
+        <ul>
+          <li>Ibuprofeno 600 mg - 10/04/2025</li>
+          <li>Amoxicilina 500 mg - 15/03/2025</li>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -73,4 +102,3 @@
   </div>
 </body>
 </html>
-
