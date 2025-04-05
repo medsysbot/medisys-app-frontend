@@ -14,37 +14,41 @@
   <main>
     <h2>Asignar Turno</h2>
     <form class="formulario">
-      <label>Nombre Completo:
+      <label class="etiqueta-campo">
+        <span>Nombre Completo:</span>
         <input type="text" name="nombre_completo" required x-webkit-speech />
       </label>
 
-      <label>DNI:
+      <label class="etiqueta-campo">
+        <span>DNI:</span>
         <input type="text" name="dni" required x-webkit-speech />
       </label>
 
-      <label>Teléfono:
+      <label class="etiqueta-campo">
+        <span>Teléfono:</span>
         <input type="tel" name="telefono" required x-webkit-speech />
       </label>
 
-      <label>Fecha del Turno:
+      <label class="etiqueta-campo">
+        <span>Fecha del Turno:</span>
         <input type="date" name="fecha_turno" required />
       </label>
     </form>
   </main>
 
-  <!-- Botones flotantes -->
+  <!-- Botones flotantes con iconos en español -->
   <div class="botones-flotantes">
     <button title="Guardar">
-      <img src="/static/icons/send.svg" alt="Enviar" />
+      <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
-    <a href="/" title="Volver al Menú">
-      <img src="/static/icons/home.svg" alt="Inicio" />
+    <a href="/index" title="Volver al Menú">
+      <img src="/static/icons/enviar.png" alt="Volver al Menú" />
     </a>
     <button onclick="window.print()" title="Imprimir">
-      <img src="/static/icons/print.svg" alt="Imprimir" />
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
-    <button onclick="document.querySelector('form').reset()" title="Descartar">
-      <img src="/static/icons/trash.svg" alt="Limpiar" />
+    <button onclick="document.querySelector('form').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
     </button>
   </div>
 </body>
