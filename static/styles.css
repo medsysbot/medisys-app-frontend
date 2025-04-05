@@ -1,90 +1,74 @@
+/* Reset básico */
 body {
-  background-color: #042f44;
-  color: white;
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-}
-
-header {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #04364A;
+  color: #fff;
   text-align: center;
-  padding: 20px;
 }
 
-.logo-formulario {
-  width: 200px; /* Aumentado al doble del tamaño anterior */
-  margin-bottom: 10px;
+/* Logo grande arriba */
+.logo-principal {
+  width: 180px;
+  margin-top: 40px;
 }
 
-main {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: left;
-}
-
-h2 {
-  text-align: center;
-  font-size: 32px; /* Aumentado para que sea más visible */
+/* Título MEDISYS */
+.titulo-medisy {
+  font-size: 48px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin: 20px 0 40px;
 }
 
-label {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 18px; /* Letras más grandes */
-  font-weight: bold; /* En negrita */
-}
-
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.botones-flotantes {
-  position: fixed;
-  top: 50%;
-  right: 10px;
+/* Contenedor de botones */
+.menu-principal {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transform: translateY(-50%);
-  z-index: 1000;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 50px;
 }
 
-.botones-flotantes button,
-.botones-flotantes a {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #00cfe8;
-  border: none;
+/* Botones grandes con íconos */
+.boton-menu {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
+  background-color: #1679AB;
+  color: white;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 12px;
+  width: 300px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
 }
 
-.botones-flotantes button:hover,
-.botones-flotantes a:hover {
-  transform: scale(1.1);
+.boton-menu:hover {
+  background-color: #13597d;
 }
 
-.botones-flotantes img {
-  width: 28px;
-  height: 28px;
-}
-
-button img,
-a img {
+.boton-menu img {
   width: 24px;
   height: 24px;
+  margin-right: 10px;
+  filter: brightness(0) invert(1);
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .boton-menu {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .logo-principal {
+    width: 140px;
+  }
+
+  .titulo-medisy {
+    font-size: 36px;
+  }
 }
