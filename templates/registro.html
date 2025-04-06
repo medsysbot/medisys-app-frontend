@@ -111,7 +111,7 @@
   <main>
     <h2>Registro de Pacientes</h2>
     <form class="formulario">
-      <label class="etiqueta-campo">
+      <label class="etiqueta-campo" style="max-width: 400px;">
         <span>🔎 Buscar paciente:</span>
         <input type="search" name="buscar" placeholder="Buscar por nombre o DNI..." />
       </label>
@@ -141,7 +141,7 @@
         <input type="tel" name="telefono" required />
       </label>
 
-      <label class="etiqueta-campo">
+      <label class="etiqueta-campo" style="max-width: 400px;">
         <span>Obra Social:</span>
         <select name="obra_social" required>
           <option value="">Seleccionar</option>
@@ -150,7 +150,7 @@
         </select>
       </label>
 
-      <label class="etiqueta-campo">
+      <label class="etiqueta-campo" style="max-width: 400px;">
         <span>Sexo:</span>
         <select name="sexo" required>
           <option value="">Seleccionar</option>
@@ -168,6 +168,9 @@
   </main>
 
   <div class="botones-flotantes">
+    <button title="Buscar">
+      <img src="/static/icons/busquedas.png" alt="Buscar" />
+    </button>
     <button title="Guardar">
       <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
