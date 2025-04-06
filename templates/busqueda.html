@@ -41,6 +41,15 @@
       max-width: 400px;
     }
 
+    .campo-busqueda {
+      background-color: transparent;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
     .campo-busqueda label {
       display: flex;
       align-items: center;
@@ -155,15 +164,15 @@
   <main>
     <h2>Búsqueda de Pacientes</h2>
 
-    <form class="formulario">
-      <div class="campo-busqueda">
-        <label for="busqueda">
-          <img src="static/icons/busqueda.png" alt="Buscar">
-          <span>Buscar por Nombre o DNI:</span>
-        </label>
-        <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
-      </div>
-    </form>
+    <div class="campo-busqueda">
+      <label for="busqueda">
+        <img src="static/icons/busqueda.png" alt="Buscar">
+        <span>Buscar por Nombre o DNI:</span>
+      </label>
+      <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
+    </div>
+
+    <form class="formulario"></form>
 
     <section class="resultado-seccion">
       <div class="resultado-titulo">
