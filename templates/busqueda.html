@@ -5,12 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Búsqueda de Pacientes</title>
   <link rel="stylesheet" href="static/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,400;1,600&display=swap" rel="stylesheet">
   <style>
+    body {
+      background-color: #083C4A;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
     .logo-grande {
       width: 120px;
       height: auto;
-      margin-top: 30px;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 600;
+      font-size: 28px;
+      font-style: italic;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 17.6px;
+      text-align: left;
+      color: white;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      max-width: 400px;
+      height: 36px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: none;
+      color: black;
     }
 
     .resultado-seccion {
@@ -27,7 +79,7 @@
       gap: 10px;
       color: white;
       padding: 10px 20px;
-      border-radius: 10px 10px 10px 10px;
+      border-radius: 10px;
       font-weight: bold;
       font-size: 1.2rem;
       background-color: #09394f;
@@ -36,8 +88,34 @@
     .resultado-contenido {
       background-color: white;
       padding: 15px 20px;
-      border-radius: 10px 10px 10px 10px;
+      border-radius: 10px;
       color: black;
+    }
+
+    .botones-flotantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .botones-flotantes button,
+    .botones-flotantes a {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
     }
   </style>
 </head>
@@ -49,12 +127,11 @@
   <main>
     <h2>Búsqueda de Pacientes</h2>
     <form class="formulario">
-      <label><strong>Buscar por Nombre o DNI:</strong>
+      <label>Buscar por Nombre o DNI:
         <input type="search" name="busqueda" placeholder="Ej: Juan Pérez o 12345678">
       </label>
     </form>
 
-    <!-- Simulación de resultados -->
     <section class="resultado-seccion">
       <div class="resultado-titulo">
         <span>📚</span> Historia Clínica
@@ -66,7 +143,7 @@
 
     <section class="resultado-seccion">
       <div class="resultado-titulo">
-        <span>📅</span> Turnos
+        <span>🗕️</span> Turnos
       </div>
       <div class="resultado-contenido">
         <ul>
@@ -90,6 +167,9 @@
   </main>
 
   <div class="botones-flotantes">
+    <button title="Buscar">
+      <img src="static/icons/busquedas.png" alt="Buscar">
+    </button>
     <button title="Enviar">
       <img src="static/icons/enviar.png" alt="Enviar">
     </button>
