@@ -72,7 +72,24 @@
       color: black;
       box-sizing: border-box;
       display: block;
-      margin: 0 auto 30px auto;
+      margin: 0 auto;
+    }
+
+    .boton-buscar {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .boton-buscar img {
+      width: 30px;
+      height: 30px;
     }
 
     .resultado-seccion {
@@ -158,9 +175,12 @@
 
     <form class="formulario">
       <label for="busqueda">
-        <img src="static/icons/busquedas.png" alt="Buscar"> Buscar por Nombre o DNI:
+        <img src="static/icons/busqueda.png" alt="Buscar"> Buscar por Nombre o DNI:
       </label>
       <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
+      <button class="boton-buscar" title="Buscar">
+        <img src="static/icons/busqueda.png" alt="Buscar">
+      </button>
     </form>
 
     <section class="resultado-seccion">
