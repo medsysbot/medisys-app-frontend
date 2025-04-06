@@ -7,8 +7,13 @@ app = FastAPI()
 # Montar carpeta de archivos estáticos
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Ruta: Página de inicio (Menú principal)
+# Ruta: Splash inicial
 @app.get("/", response_class=HTMLResponse)
+async def splash():
+    return FileResponse("templates/splash_screen.html")
+
+# Ruta: Página de inicio (Menú principal)
+@app.get("/index", response_class=HTMLResponse)
 async def menu():
     return FileResponse("templates/index.html")
 
