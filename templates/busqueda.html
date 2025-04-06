@@ -63,22 +63,6 @@
       height: 24px;
     }
 
-    .busqueda-container button {
-      background-color: #4A90E2;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .busqueda-container button img {
-      width: 30px;
-      height: 30px;
-    }
-
     input[type="search"] {
       width: 100%;
       height: 36px;
@@ -90,7 +74,51 @@
       border: none;
       color: black;
       box-sizing: border-box;
-      margin-top: 8px;
+    }
+
+    .botones-flotantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .botones-flotantes button,
+    .botones-flotantes a {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
+    }
+
+    .boton-buscar-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 200px;
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .boton-buscar-flotante img {
+      width: 30px;
+      height: 30px;
     }
 
     .resultado-seccion {
@@ -138,32 +166,6 @@
       display: flex;
       align-items: center;
     }
-
-    .botones-flotantes {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .botones-flotantes button,
-    .botones-flotantes a {
-      background-color: #4A90E2;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .botones-flotantes img {
-      width: 30px;
-      height: 30px;
-    }
   </style>
 </head>
 <body>
@@ -175,14 +177,9 @@
     <h2>Búsqueda de Pacientes</h2>
 
     <form class="formulario">
-      <div class="busqueda-container">
-        <label for="busqueda">
-          <img src="static/icons/busqueda.png" alt="Buscar"> Buscar por Nombre o DNI:
-        </label>
-        <button class="boton-buscar" title="Buscar">
-          <img src="static/icons/busquedas.png" alt="Buscar">
-        </button>
-      </div>
+      <label for="busqueda">
+        <img src="static/icons/busqueda.png" alt="Buscar"> Buscar por Nombre o DNI:
+      </label>
       <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
     </form>
 
@@ -213,6 +210,10 @@
       </div>
     </section>
   </main>
+
+  <button class="boton-buscar-flotante" title="Buscar">
+    <img src="static/icons/busquedas.png" alt="Buscar">
+  </button>
 
   <div class="botones-flotantes">
     <button title="Enviar">
