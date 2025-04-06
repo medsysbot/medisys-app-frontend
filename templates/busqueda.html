@@ -41,7 +41,13 @@
       max-width: 400px;
     }
 
-    label {
+    .busqueda-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .busqueda-container label {
       font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-size: 17.6px;
@@ -52,9 +58,25 @@
       gap: 8px;
     }
 
-    label img {
+    .busqueda-container label img {
       width: 24px;
       height: 24px;
+    }
+
+    .busqueda-container button {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .busqueda-container button img {
+      width: 30px;
+      height: 30px;
     }
 
     input[type="search"] {
@@ -68,22 +90,7 @@
       border: none;
       color: black;
       box-sizing: border-box;
-    }
-
-    .boton-buscar {
-      background-color: #4A90E2;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .boton-buscar img {
-      width: 30px;
-      height: 30px;
+      margin-top: 8px;
     }
 
     .resultado-seccion {
@@ -168,13 +175,15 @@
     <h2>Búsqueda de Pacientes</h2>
 
     <form class="formulario">
-      <label for="busqueda">
-        <img src="static/icons/busqueda.png" alt="Buscar"> Buscar por Nombre o DNI:
-      </label>
+      <div class="busqueda-container">
+        <label for="busqueda">
+          <img src="static/icons/busqueda.png" alt="Buscar"> Buscar por Nombre o DNI:
+        </label>
+        <button class="boton-buscar" title="Buscar">
+          <img src="static/icons/busquedas.png" alt="Buscar">
+        </button>
+      </div>
       <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
-      <button class="boton-buscar" title="Buscar">
-        <img src="static/icons/busquedas.png" alt="Buscar">
-      </button>
     </form>
 
     <section class="resultado-seccion">
