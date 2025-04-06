@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MEDISYS</title>
-  <link rel="stylesheet" href="static/styles.css">
+  <link rel="stylesheet" href="static/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
   <style>
     body {
@@ -13,56 +13,31 @@
       color: white;
       margin: 0;
       padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .centro-logo-titulo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      text-align: center;
     }
 
     .logo-grande {
       width: 240px;
       height: auto;
-      margin-top: 30px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
 
     h1.titulo {
-      text-align: center;
       font-weight: 600;
       font-size: 28px;
-      margin-top: 10px;
-      margin-bottom: 25px;
       font-style: italic;
-    }
-
-    .menu-principal {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-
-    a.boton-menu {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      background-color: #062e39;
-      color: white;
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 1.1rem;
-      height: 45px; /* Actualizado */
-      padding: 0 15px;
-      border-radius: 12px;
-      width: 360px;
-      max-width: 90vw;
-      transition: background-color 0.3s ease;
-    }
-
-    a.boton-menu:hover {
-      background-color: #0d4352;
-    }
-
-    a.boton-menu img {
-      width: 56px;
-      height: 56px;
-      margin-right: 12px;
+      margin: 0;
     }
 
     footer {
@@ -73,42 +48,10 @@
   </style>
 </head>
 <body>
-  <header>
+  <div class="centro-logo-titulo">
     <img src="static/logo-medsys.png" alt="Logo MEDISYS" class="logo-grande">
     <h1 class="titulo">Salud inteligente para un mundo real.</h1>
-  </header>
-
-  <main class="menu-principal">
-    <a href="/registro" class="boton-menu">
-      <img src="static/icons/icono-registro.png" alt="Registro">
-      Registro de Pacientes
-    </a>
-
-    <a href="/historia" class="boton-menu">
-      <img src="static/icons/icono-historia.png" alt="Historia Clínica">
-      Historia Clínica
-    </a>
-
-    <a href="/receta" class="boton-menu">
-      <img src="static/icons/icono-receta.png" alt="Receta">
-      Receta Electrónica
-    </a>
-
-    <a href="/indicaciones" class="boton-menu">
-      <img src="static/icons/icono-indicaciones.png" alt="Indicaciones">
-      Indicaciones Médicas
-    </a>
-
-    <a href="/turnos" class="boton-menu">
-      <img src="static/icons/icono-turnos.png" alt="Turnos">
-      Turnos
-    </a>
-
-    <a href="/busqueda" class="boton-menu">
-      <img src="static/icons/busqueda.png" alt="Búsqueda">
-      Búsqueda de Pacientes
-    </a>
-  </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 MEDISYS</p>
