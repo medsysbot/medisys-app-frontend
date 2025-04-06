@@ -18,6 +18,13 @@
       max-width: 600px;
       margin: 40px auto;
       padding: 20px;
+      text-align: center;
+    }
+
+    .logo-grande {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
     }
 
     h1 {
@@ -31,14 +38,15 @@
     label {
       display: flex;
       flex-direction: column;
-      font-size: 17.6px;
+      font-size: 17.5px;
       font-weight: 400;
       margin-bottom: 10px;
+      text-align: left;
     }
 
     input, textarea {
       font-family: 'Poppins', sans-serif;
-      font-size: 17.6px;
+      font-size: 17.5px;
       font-weight: 400;
       color: black;
       padding: 10px;
@@ -62,6 +70,7 @@
       display: flex;
       flex-direction: column;
       gap: 15px;
+      z-index: 1000;
     }
 
     .botones-flotantes button,
@@ -84,7 +93,9 @@
 </head>
 <body class="formulario">
   <div class="form-container">
+    <img src="/static/icons/icono-receta.png" alt="Icono Receta" class="logo-grande">
     <h1>Receta Médica</h1>
+
     <form id="form-receta">
       <label for="nombre">Nombre del paciente:</label>
       <input type="text" id="nombre" name="nombre" required>
@@ -97,23 +108,24 @@
 
       <label for="medicamentos">Medicamentos indicados:</label>
       <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
-
-      <div class="botones-flotantes">
-        <button type="button" onclick="guardarFormulario()">
-          <img src="/static/icons/save-icon.svg" alt="Guardar">
-        </button>
-        <button type="button" onclick="imprimirFormulario()">
-          <img src="/static/icons/print-icon.svg" alt="Imprimir">
-        </button>
-        <button type="button" onclick="eliminarFormulario()">
-          <img src="/static/icons/delete-icon.svg" alt="Eliminar">
-        </button>
-        <button type="button">
-          <img src="/static/icons/close-icon.svg" alt="Cerrar">
-        </button>
-      </div>
     </form>
   </div>
+
+  <div class="botones-flotantes">
+    <button type="button" onclick="guardarFormulario()">
+      <img src="/static/icons/save-icon.svg" alt="Guardar">
+    </button>
+    <button type="button" onclick="imprimirFormulario()">
+      <img src="/static/icons/print-icon.svg" alt="Imprimir">
+    </button>
+    <button type="button" onclick="eliminarFormulario()">
+      <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+    </button>
+    <button type="button">
+      <img src="/static/icons/close-icon.svg" alt="Cerrar">
+    </button>
+  </div>
+
   <script src="/static/js/guardar_receta.js"></script>
 </body>
 </html>
