@@ -47,9 +47,16 @@
       font-size: 17.6px;
       text-align: left;
       color: white;
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       width: 100%;
       max-width: 400px;
+    }
+
+    label img {
+      width: 24px;
+      height: 24px;
     }
 
     input[type="search"] {
@@ -64,11 +71,14 @@
       border: none;
       color: black;
       box-sizing: border-box;
+      display: block;
+      margin: 0 auto 30px auto;
     }
 
     .resultado-seccion {
       background-color: transparent;
       margin: 20px auto;
+      width: 100%;
       max-width: 400px;
       border-radius: 10px;
       text-align: left;
@@ -145,10 +155,12 @@
 
   <main>
     <h2>Búsqueda de Pacientes</h2>
+
     <form class="formulario">
-      <label>Buscar por Nombre o DNI:
-        <input type="search" name="busqueda" placeholder="Ej: Juan Pérez o 12345678">
+      <label for="busqueda">
+        <img src="static/icons/busquedas.png" alt="Buscar"> Buscar por Nombre o DNI:
       </label>
+      <input type="search" name="busqueda" id="busqueda" placeholder="Ej: Juan Pérez o 12345678">
     </form>
 
     <section class="resultado-seccion">
@@ -180,16 +192,13 @@
   </main>
 
   <div class="botones-flotantes">
-    <button title="Buscar">
-      <img src="static/icons/busquedas.png" alt="Buscar">
-    </button>
     <button title="Enviar">
       <img src="static/icons/enviar.png" alt="Enviar">
     </button>
     <button onclick="window.print()" title="Imprimir">
       <img src="static/icons/imprimir.png" alt="Imprimir">
     </button>
-    <button onclick="document.querySelector('form').reset()" title="Limpiar">
+    <button onclick="document.querySelector('form')?.reset()" title="Limpiar">
       <img src="static/icons/borrar.png" alt="Limpiar">
     </button>
   </div>
