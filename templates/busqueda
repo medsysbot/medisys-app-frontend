@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Búsqueda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet" />
+  <script src="/static/js/voz-a-formulario-busqueda.js" defer></script>
+  <script src="/static/js/guardar_busqueda.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="/static/icons/busqueda.png" alt="Icono Búsqueda" class="logo-grande" style="width: 120px; margin-top: 20px;" />
+    <h2 style="text-align: center; font-style: italic; font-weight: 600; font-size: 28px; color: white; margin-top: 10px;">
+      Búsqueda
+    </h2>
+  </header>
+
+  <main>
+    <form class="formulario" id="form-busqueda" style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto; padding: 20px; align-items: center;">
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">Buscar por Nombre o DNI:</span>
+        <input type="search" id="busqueda" name="busqueda" placeholder="Ej: Juan López o 12345678" required />
+      </label>
+    </form>
+
+    <div class="visor-pdf" style="margin-top: 40px; text-align: center;">
+      <h3>Vista previa del documento generado:</h3>
+      <iframe src="/static/doc/medsys-busqueda.pdf" type="application/pdf" style="width: 90%; height: 500px; border: 2px solid #09394f; border-radius: 10px;"></iframe>
+    </div>
+  </main>
+
+  <div class="botones-flotantes" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000;">
+    <button type="button" onclick="iniciarReconocimiento()" title="Dictado por voz">
+      <img src="/static/icons/microfono.png" alt="Micrófono" />
+    </button>
+    <button type="button" onclick="guardarPDF()" title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
+    </button>
+    <button type="submit" form="form-busqueda" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </button>
+    <button type="button" onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    </button>
+    <button type="button" onclick="document.getElementById('form-busqueda').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
+    </button>
+  </div>
+</body>
+</html>
