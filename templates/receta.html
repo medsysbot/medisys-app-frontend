@@ -7,17 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #083a51;
+      background-color: #083C4A;
       font-family: 'Poppins', sans-serif;
       color: white;
       margin: 0;
       padding: 0;
     }
 
-    .form-container {
-      max-width: 600px;
-      margin: 40px auto;
-      padding: 20px;
+    header {
+      text-align: center;
+      margin-top: 20px;
     }
 
     .logo-grande {
@@ -27,44 +26,55 @@
       margin: 0 auto 10px auto;
     }
 
-    h1 {
+    h2 {
       text-align: center;
       font-style: italic;
       font-weight: 600;
       font-size: 28px;
-      margin-bottom: 30px;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      align-items: center;
     }
 
     .etiqueta-campo {
-      max-width: 400px;
-      margin: 0 auto 15px auto;
-    }
-
-    .etiqueta-campo label {
-      font-size: 17.6px;
-      font-weight: 400;
-      margin-bottom: 5px;
-      color: white;
-      font-family: 'Poppins', sans-serif;
-      text-align: left;
-      display: block;
-    }
-
-    .etiqueta-campo input,
-    .etiqueta-campo textarea {
-      font-family: 'Poppins', sans-serif;
-      font-size: 17.6px;
-      font-weight: 400;
-      color: black;
-      padding: 6px 10px;
-      border: none;
-      border-radius: 8px;
       width: 100%;
+      max-width: 400px;
+    }
+
+    .etiqueta-campo span {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 17.6px;
+      text-align: left;
+      color: white;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      color: black;
+      font-weight: 400;
+      font-size: 17.6px;
       height: 36px;
       box-sizing: border-box;
     }
 
-    .etiqueta-campo textarea {
+    .formulario textarea {
       height: auto;
       resize: vertical;
     }
@@ -98,45 +108,47 @@
   </style>
 </head>
 <body>
-  <div class="form-container">
+  <header>
     <img src="/static/icons/icono-receta.png" alt="Icono Receta" class="logo-grande">
-    <h1>Receta Médica</h1>
+    <h2>Receta Médica</h2>
+  </header>
 
-    <form id="form-receta">
-      <div class="etiqueta-campo">
-        <label for="nombre">Nombre del paciente:</label>
-        <input type="text" id="nombre" name="nombre" required>
-      </div>
+  <main>
+    <form class="formulario" id="form-receta">
+      <label class="etiqueta-campo">
+        <span>Nombre del Paciente:</span>
+        <input type="text" name="nombre" required />
+      </label>
 
-      <div class="etiqueta-campo">
-        <label for="dni">DNI:</label>
-        <input type="text" id="dni" name="dni" required>
-      </div>
+      <label class="etiqueta-campo">
+        <span>DNI:</span>
+        <input type="text" name="dni" required />
+      </label>
 
-      <div class="etiqueta-campo">
-        <label for="fecha">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" required>
-      </div>
+      <label class="etiqueta-campo">
+        <span>Fecha:</span>
+        <input type="date" name="fecha" required />
+      </label>
 
-      <div class="etiqueta-campo">
-        <label for="medicamentos">Medicamentos indicados:</label>
-        <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
-      </div>
+      <label class="etiqueta-campo">
+        <span>Medicamentos indicados:</span>
+        <textarea name="medicamentos" rows="6" required></textarea>
+      </label>
     </form>
-  </div>
+  </main>
 
   <div class="botones-flotantes">
     <button type="button" onclick="guardarFormulario()">
-      <img src="/static/icons/guardar.png" alt="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
-    <button type="button" onclick="imprimirFormulario()">
-      <img src="/static/icons/imprimir.png" alt="Imprimir">
+    <a href="#" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </a>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
-    <button type="button" onclick="document.getElementById('form-receta').reset()">
-      <img src="/static/icons/borrar.png" alt="Borrar">
-    </button>
-    <button type="button">
-      <img src="/static/icons/enviar.png" alt="Enviar">
+    <button onclick="document.querySelector('form').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
     </button>
   </div>
 
