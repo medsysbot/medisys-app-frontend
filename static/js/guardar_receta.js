@@ -1,33 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const botonGuardar = document.getElementById("guardarRecetaBtn");
+function guardarPDF() {
+  const nombre = document.getElementById('nombre').value;
+  const dni = document.getElementById('dni').value;
+  const diagnostico = document.getElementById('diagnostico').value;
+  const fecha = document.getElementById('fecha').value;
+  const medicamentos = document.getElementById('medicamentos').value;
 
-    if (botonGuardar) {
-        botonGuardar.addEventListener("click", async function () {
-            const receta = document.getElementById("textoReceta")?.value;
+  if (!nombre || !dni || !diagnostico || !fecha || !medicamentos) {
+    alert("Por favor, completá todos los campos antes de guardar.");
+    return;
+  }
 
-            if (!receta) {
-                alert("Por favor, escribe la receta antes de guardar.");
-                return;
-            }
-
-            try {
-                const response = await fetch("/guardar_receta", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ receta: receta }),
-                });
-
-                if (response.ok) {
-                    alert("Receta guardada correctamente.");
-                } else {
-                    alert("Error al guardar la receta. Intenta nuevamente.");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Error al conectar con el servidor.");
-            }
-        });
+  fetch('/generar-pdf-receta', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, dni, diagnostico, fecha, medicamentos })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('PDF generado correctamente');
+      document.querySelector('.visor-pdf iframe').src = '/static/doc/receta-medica-generada.pdf?' + new Date().getTime();
+    } else {
+      alert('Error al generar la receta. Intenta nuevamente.');
     }
-});
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+    alert("No se pudo conectar con el servidor.");
+  });
+}
