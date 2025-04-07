@@ -1,63 +1,99 @@
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, FileResponse
-from fastapi.staticfiles import StaticFiles
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedSys – Menú Principal</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #083C4A;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-app = FastAPI()
+    .logo-medsys {
+      width: 200px;
+      margin: 30px auto 20px;
+      display: block;
+    }
 
-# Montar carpeta de archivos estáticos
-app.mount("/static", StaticFiles(directory="static"), name="static")
+    h1 {
+      font-style: italic;
+      font-weight: 600;
+      font-size: 28px;
+      color: white;
+      margin-bottom: 30px;
+    }
 
-# Ruta: Splash inicial
-@app.get("/", response_class=HTMLResponse)
-async def splash():
-    return FileResponse("templates/splash_screen.html")
+    .menu-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
 
-# Ruta: Página de inicio (Menú principal)
-@app.get("/index", response_class=HTMLResponse)
-async def menu():
-    return FileResponse("templates/index.html")
+    .menu-principal a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #1976d2;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 15px;
+      border-radius: 12px;
+      width: 360px;
+      max-width: 90%;
+      transition: background-color 0.3s;
+    }
 
-# Ruta: Registro de pacientes
-@app.get("/registro", response_class=HTMLResponse)
-async def registro():
-    return FileResponse("templates/registro.html")
+    .menu-principal a:hover {
+      background-color: #2196f3;
+    }
 
-# Ruta: Historia clínica
-@app.get("/historia", response_class=HTMLResponse)
-async def historia():
-    return FileResponse("templates/historia.html")
+    .menu-principal img {
+      width: 56px;
+      height: 56px;
+      margin-right: 12px;
+    }
+  </style>
+</head>
+<body>
+  <img src="/static/icons/logo-medsys.png" alt="Logo MedSys" class="logo-medsys">
+  <h1>Menú Principal</h1>
 
-# Historia clínica - Formato completo
-@app.get("/historia-completa", response_class=HTMLResponse)
-async def historia_completa():
-    return FileResponse("templates/historia-completa.html")
-
-# Historia clínica - Formato reducido
-@app.get("/historia-resumen", response_class=HTMLResponse)
-async def historia_resumen():
-    return FileResponse("templates/historia-resumen.html")
-
-# Historia clínica - Evolución
-@app.get("/historia-evolucion", response_class=HTMLResponse)
-async def historia_evolucion():
-    return FileResponse("templates/historia-evolucion.html")
-
-# Ruta: Receta electrónica
-@app.get("/receta", response_class=HTMLResponse)
-async def receta():
-    return FileResponse("templates/receta.html")
-
-# Ruta: Indicaciones médicas
-@app.get("/indicaciones", response_class=HTMLResponse)
-async def indicaciones():
-    return FileResponse("templates/indicaciones.html")
-
-# Ruta: Turnos médicos
-@app.get("/turnos", response_class=HTMLResponse)
-async def turnos():
-    return FileResponse("templates/turnos.html")
-
-# Ruta: Búsqueda de pacientes
-@app.get("/busqueda", response_class=HTMLResponse)
-async def busqueda():
-    return FileResponse("templates/busqueda.html")
+  <div class="menu-principal">
+    <a href="/registro">
+      <img src="/static/icons/icono-registro.png" alt="Registro">
+      Registro de Pacientes
+    </a>
+    <a href="/historia">
+      <img src="/static/icons/icono-historia.png" alt="Historia">
+      Historia Clínica
+    </a>
+    <a href="/receta">
+      <img src="/static/icons/icono-receta.png" alt="Receta">
+      Receta Médica
+    </a>
+    <a href="/indicaciones">
+      <img src="/static/icons/icono-indicaciones.png" alt="Indicaciones">
+      Indicaciones Médicas
+    </a>
+    <a href="/turnos">
+      <img src="/static/icons/icono-turnos.png" alt="Turnos">
+      Turnos Médicos
+    </a>
+    <a href="/busqueda">
+      <img src="/static/icons/busqueda.png" alt="Buscar">
+      Búsqueda de Pacientes
+    </a>
+  </div>
+</body>
+</html>
