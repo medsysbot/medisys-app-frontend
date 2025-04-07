@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/static/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <script src="/static/js/voz-a-formulario-receta.js" defer></script>
   <style>
     body {
       background-color: #083C4A;
@@ -79,6 +80,18 @@
       resize: vertical;
     }
 
+    .visor-pdf {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .visor-pdf iframe {
+      width: 90%;
+      height: 500px;
+      border: 2px solid #09394f;
+      border-radius: 10px;
+    }
+
     .botones-flotantes {
       position: fixed;
       right: 20px;
@@ -89,8 +102,7 @@
       z-index: 1000;
     }
 
-    .botones-flotantes button,
-    .botones-flotantes a {
+    .botones-flotantes button {
       background-color: #4A90E2;
       border: none;
       border-radius: 50%;
@@ -99,6 +111,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .botones-flotantes img {
@@ -117,41 +130,80 @@
     <form class="formulario" id="form-receta">
       <label class="etiqueta-campo">
         <span>Nombre del Paciente:</span>
-        <input type="text" name="nombre" required />
+        <input type="text" id="nombre" name="nombre" required />
       </label>
 
       <label class="etiqueta-campo">
         <span>DNI:</span>
-        <input type="text" name="dni" required />
+        <input type="text" id="dni" name="dni" required />
+      </label>
+
+      <label class="etiqueta-campo">
+        <span>Diagnóstico:</span>
+        <input type="text" id="diagnostico" name="diagnostico" required />
       </label>
 
       <label class="etiqueta-campo">
         <span>Fecha:</span>
-        <input type="date" name="fecha" required />
+        <input type="date" id="fecha" name="fecha" required />
       </label>
 
       <label class="etiqueta-campo">
         <span>Medicamentos indicados:</span>
-        <textarea name="medicamentos" rows="6" required></textarea>
+        <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
       </label>
     </form>
+
+    <div class="visor-pdf">
+      <h3>Vista previa de la receta generada:</h3>
+      <iframe src="/static/doc/receta-medica-generada.pdf" type="application/pdf"></iframe>
+    </div>
   </main>
 
   <div class="botones-flotantes">
-    <button type="button" onclick="guardarFormulario()">
+    <button type="button" onclick="iniciarReconocimiento()" title="Dictado por voz">
+      <img src="/static/icons/microfono.png" alt="Micrófono" />
+    </button>
+
+    <button type="button" onclick="guardarPDF()" title="Guardar">
       <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
-    <a href="#" title="Enviar">
+
+    <button type="submit" form="form-receta" title="Enviar">
       <img src="/static/icons/enviar.png" alt="Enviar" />
-    </a>
+    </button>
+
     <button onclick="window.print()" title="Imprimir">
       <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
+
     <button onclick="document.getElementById('form-receta').reset()" title="Borrar">
       <img src="/static/icons/borrar.png" alt="Borrar" />
     </button>
   </div>
 
-  <script src="/static/js/guardar_receta.js"></script>
+  <script>
+    function guardarPDF() {
+      const nombre = document.getElementById('nombre').value;
+      const dni = document.getElementById('dni').value;
+      const diagnostico = document.getElementById('diagnostico').value;
+      const fecha = document.getElementById('fecha').value;
+      const medicamentos = document.getElementById('medicamentos').value;
+
+      fetch('/generar-pdf-receta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nombre, dni, diagnostico, fecha, medicamentos })
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('PDF generado correctamente');
+          document.querySelector('.visor-pdf iframe').src = '/static/doc/receta-medica-generada.pdf?' + new Date().getTime();
+        } else {
+          alert('Error al generar la receta');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
