@@ -1,50 +1,29 @@
-function iniciarReconocimiento() {
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  recognition.lang = 'es-AR';
-  recognition.interimResults = false;
-  recognition.continuous = false;
+function guardarPDF() {
+  const nombre = document.getElementById('nombre').value;
+  const dni = document.getElementById('dni').value;
+  const fecha = document.getElementById('fecha').value;
+  const indicaciones = document.getElementById('indicaciones').value;
 
-  recognition.onresult = (event) => {
-    const texto = event.results[0][0].transcript.toLowerCase();
-    console.log("Texto dictado:", texto);
+  if (!nombre || !dni || !fecha || !indicaciones) {
+    alert("Por favor, completá todos los campos antes de guardar.");
+    return;
+  }
 
-    if (texto.includes("nombre")) {
-      document.getElementById("nombre").value = limpiarCampo(texto, "nombre");
-    } else if (texto.includes("dni")) {
-      document.getElementById("dni").value = limpiarCampo(texto, "dni");
-    } else if (texto.includes("fecha")) {
-      const fechaTexto = limpiarCampo(texto, "fecha").replace(/ de /g, "-");
-      document.getElementById("fecha").value = convertirFecha(fechaTexto);
-    } else if (texto.includes("indicaciones")) {
-      document.getElementById("indicaciones").value = limpiarCampo(texto, "indicaciones");
-    }
-  };
-
-  recognition.onerror = (e) => console.error("Error de voz:", e.error);
-  recognition.start();
-}
-
-function limpiarCampo(texto, campo) {
-  return texto.replace(campo, "").replace("dos puntos", ":").trim();
-}
-
-function convertirFecha(texto) {
-  try {
-    if (texto.includes("-")) {
-      let partes = texto.split("-");
-      return `${partes[2]}-${partes[1].padStart(2, '0')}-${partes[0].padStart(2, '0')}`;
+  fetch('/generar-pdf-indicaciones', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre, dni, fecha, indicaciones })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('PDF generado correctamente');
+      document.querySelector('.visor-pdf iframe').src = '/static/doc/indicaciones-medicas-generado.pdf?' + new Date().getTime();
     } else {
-      return texto;
+      alert('Error al generar las indicaciones. Intenta nuevamente.');
     }
-  } catch (e) {
-    return "";
-  }
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+    alert("No se pudo conectar con el servidor.");
+  });
 }
-
-// Activador por barra espaciadora
-document.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
-    e.preventDefault();
-    iniciarReconocimiento();
-  }
-});
