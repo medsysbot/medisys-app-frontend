@@ -7,203 +7,71 @@
   <link rel="stylesheet" href="/static/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
   <script src="/static/js/voz-a-formulario-receta.js" defer></script>
-  <style>
-    body {
-      background-color: #083C4A;
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .logo-grande {
-      width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      text-align: center;
-      font-style: italic;
-      font-weight: 600;
-      font-size: 28px;
-      color: white;
-      margin-top: 10px;
-    }
-
-    .formulario {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      align-items: center;
-    }
-
-    .etiqueta-campo {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .etiqueta-campo span {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 400;
-      font-size: 17.6px;
-      text-align: left;
-      color: white;
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .formulario input,
-    .formulario textarea {
-      width: 100%;
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: none;
-      font-family: 'Poppins', sans-serif;
-      font-size: 17.6px;
-      font-weight: 400;
-      color: black;
-      height: 36px;
-      box-sizing: border-box;
-    }
-
-    .formulario textarea {
-      height: auto;
-      resize: vertical;
-    }
-
-    .visor-pdf {
-      margin-top: 40px;
-      text-align: center;
-    }
-
-    .visor-pdf iframe {
-      width: 90%;
-      height: 500px;
-      border: 2px solid #09394f;
-      border-radius: 10px;
-    }
-
-    .botones-flotantes {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 1000;
-    }
-
-    .botones-flotantes button {
-      background-color: #4A90E2;
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-
-    .botones-flotantes img {
-      width: 30px;
-      height: 30px;
-    }
-  </style>
 </head>
 <body>
   <header>
-    <img src="/static/icons/icono-receta.png" alt="Icono Receta" class="logo-grande">
-    <h2>Receta Médica</h2>
+    <img src="/static/icons/icono-receta.png" alt="Icono Receta" class="logo-grande" style="width: 120px; margin-top: 20px;" />
+    <h2 style="text-align: center; font-style: italic; font-weight: 600; font-size: 28px; color: white; margin-top: 10px;">
+      Receta Médica
+    </h2>
   </header>
 
   <main>
-    <form class="formulario" id="form-receta">
-      <label class="etiqueta-campo">
-        <span>Nombre del Paciente:</span>
+    <form class="formulario" id="form-receta" style="display: flex; flex-direction: column; gap: 20px; max-width: 600px; margin: 0 auto; padding: 20px; align-items: center;">
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">Nombre del Paciente:</span>
         <input type="text" id="nombre" name="nombre" required />
       </label>
 
-      <label class="etiqueta-campo">
-        <span>DNI:</span>
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">DNI:</span>
         <input type="text" id="dni" name="dni" required />
       </label>
 
-      <label class="etiqueta-campo">
-        <span>Diagnóstico:</span>
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">Diagnóstico:</span>
         <input type="text" id="diagnostico" name="diagnostico" required />
       </label>
 
-      <label class="etiqueta-campo">
-        <span>Fecha:</span>
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">Fecha:</span>
         <input type="date" id="fecha" name="fecha" required />
       </label>
 
-      <label class="etiqueta-campo">
-        <span>Medicamentos indicados:</span>
+      <label class="etiqueta-campo" style="width: 100%; max-width: 400px;">
+        <span style="font-weight: 400; font-size: 17.6px; display: block; margin-bottom: 5px;">Medicamentos indicados:</span>
         <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
       </label>
     </form>
 
-    <div class="visor-pdf">
+    <div class="visor-pdf" style="margin-top: 40px; text-align: center;">
       <h3>Vista previa de la receta generada:</h3>
-      <iframe src="/static/doc/receta-medica-generada.pdf" type="application/pdf"></iframe>
+      <iframe src="/static/doc/receta-medica-generada.pdf" type="application/pdf" style="width: 90%; height: 500px; border: 2px solid #09394f; border-radius: 10px;"></iframe>
     </div>
   </main>
 
-  <div class="botones-flotantes">
-    <button type="button" onclick="iniciarReconocimiento()" title="Dictado por voz">
-      <img src="/static/icons/microfono.png" alt="Micrófono" />
+  <div class="botones-flotantes" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000;">
+    <button type="button" onclick="iniciarReconocimiento()" title="Dictado por voz" style="background-color: #4A90E2; border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="/static/icons/microfono.png" alt="Micrófono" style="width: 30px; height: 30px;" />
     </button>
 
-    <button type="button" onclick="guardarPDF()" title="Guardar">
-      <img src="/static/icons/guardar.png" alt="Guardar" />
+    <button type="button" onclick="guardarPDF()" title="Guardar" style="background-color: #4A90E2; border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="/static/icons/guardar.png" alt="Guardar" style="width: 30px; height: 30px;" />
     </button>
 
-    <button type="submit" form="form-receta" title="Enviar">
-      <img src="/static/icons/enviar.png" alt="Enviar" />
+    <button type="submit" form="form-receta" title="Enviar" style="background-color: #4A90E2; border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="/static/icons/enviar.png" alt="Enviar" style="width: 30px; height: 30px;" />
     </button>
 
-    <button onclick="window.print()" title="Imprimir">
-      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    <button type="button" onclick="window.print()" title="Imprimir" style="background-color: #4A90E2; border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" style="width: 30px; height: 30px;" />
     </button>
 
-    <button onclick="document.getElementById('form-receta').reset()" title="Borrar">
-      <img src="/static/icons/borrar.png" alt="Borrar" />
+    <button type="button" onclick="document.getElementById('form-receta').reset()" title="Borrar" style="background-color: #4A90E2; border: none; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+      <img src="/static/icons/borrar.png" alt="Borrar" style="width: 30px; height: 30px;" />
     </button>
   </div>
 
-  <script>
-    function guardarPDF() {
-      const nombre = document.getElementById('nombre').value;
-      const dni = document.getElementById('dni').value;
-      const diagnostico = document.getElementById('diagnostico').value;
-      const fecha = document.getElementById('fecha').value;
-      const medicamentos = document.getElementById('medicamentos').value;
-
-      fetch('/generar-pdf-receta', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, dni, diagnostico, fecha, medicamentos })
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('PDF generado correctamente');
-          document.querySelector('.visor-pdf iframe').src = '/static/doc/receta-medica-generada.pdf?' + new Date().getTime();
-        } else {
-          alert('Error al generar la receta');
-        }
-      });
-    }
-  </script>
+  <script src="/static/js/guardar_receta.js"></script>
 </body>
 </html>
