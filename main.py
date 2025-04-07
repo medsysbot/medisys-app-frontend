@@ -1,99 +1,53 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedSys – Menú Principal</title>
-  <link rel="stylesheet" href="/static/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background-color: #083C4A;
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 
-    .logo-medsys {
-      width: 200px;
-      margin: 30px auto 20px;
-      display: block;
-    }
+app = FastAPI()
 
-    h1 {
-      font-style: italic;
-      font-weight: 600;
-      font-size: 28px;
-      color: white;
-      margin-bottom: 30px;
-    }
+# Rutas estáticas (CSS, JS, imágenes)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
-    .menu-principal {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
+# Carpeta de templates HTML
+templates = Jinja2Templates(directory="templates")
 
-    .menu-principal a {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      background-color: #1976d2;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1.1rem;
-      padding: 15px;
-      border-radius: 12px;
-      width: 360px;
-      max-width: 90%;
-      transition: background-color 0.3s;
-    }
+# Rutas principales de navegación
+@app.get("/", response_class=HTMLResponse)
+async def inicio(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
-    .menu-principal a:hover {
-      background-color: #2196f3;
-    }
+@app.get("/registro", response_class=HTMLResponse)
+async def registro(request: Request):
+    return templates.TemplateResponse("registro.html", {"request": request})
 
-    .menu-principal img {
-      width: 56px;
-      height: 56px;
-      margin-right: 12px;
-    }
-  </style>
-</head>
-<body>
-  <img src="/static/icons/logo-medsys.png" alt="Logo MedSys" class="logo-medsys">
-  <h1>Menú Principal</h1>
+@app.get("/historia", response_class=HTMLResponse)
+async def historia(request: Request):
+    return templates.TemplateResponse("historia.html", {"request": request})
 
-  <div class="menu-principal">
-    <a href="/registro">
-      <img src="/static/icons/icono-registro.png" alt="Registro">
-      Registro de Pacientes
-    </a>
-    <a href="/historia">
-      <img src="/static/icons/icono-historia.png" alt="Historia">
-      Historia Clínica
-    </a>
-    <a href="/receta">
-      <img src="/static/icons/icono-receta.png" alt="Receta">
-      Receta Médica
-    </a>
-    <a href="/indicaciones">
-      <img src="/static/icons/icono-indicaciones.png" alt="Indicaciones">
-      Indicaciones Médicas
-    </a>
-    <a href="/turnos">
-      <img src="/static/icons/icono-turnos.png" alt="Turnos">
-      Turnos Médicos
-    </a>
-    <a href="/busqueda">
-      <img src="/static/icons/busqueda.png" alt="Buscar">
-      Búsqueda de Pacientes
-    </a>
-  </div>
-</body>
-</html>
+@app.get("/receta", response_class=HTMLResponse)
+async def receta(request: Request):
+    return templates.TemplateResponse("receta.html", {"request": request})
+
+@app.get("/indicaciones", response_class=HTMLResponse)
+async def indicaciones(request: Request):
+    return templates.TemplateResponse("indicaciones.html", {"request": request})
+
+@app.get("/turnos", response_class=HTMLResponse)
+async def turnos(request: Request):
+    return templates.TemplateResponse("turnos.html", {"request": request})
+
+@app.get("/busqueda", response_class=HTMLResponse)
+async def busqueda(request: Request):
+    return templates.TemplateResponse("busqueda.html", {"request": request})
+
+@app.get("/historia-completa", response_class=HTMLResponse)
+async def historia_completa(request: Request):
+    return templates.TemplateResponse("historia-completa.html", {"request": request})
+
+@app.get("/historia-resumen", response_class=HTMLResponse)
+async def historia_resumen(request: Request):
+    return templates.TemplateResponse("historia-resumen.html", {"request": request})
+
+@app.get("/historia-evolucion", response_class=HTMLResponse)
+async def historia_evolucion(request: Request):
+    return templates.TemplateResponse("evolucion.html", {"request": request})
