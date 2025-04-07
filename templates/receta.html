@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Receta Médica</title>
   <link rel="stylesheet" href="/static/styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
   <style>
     body {
       background-color: #083a51;
@@ -19,13 +18,13 @@
       max-width: 600px;
       margin: 40px auto;
       padding: 20px;
-      text-align: center;
     }
 
     .logo-grande {
       width: 120px;
       height: auto;
-      margin-bottom: 10px;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
     h1 {
@@ -39,15 +38,17 @@
     label {
       display: flex;
       flex-direction: column;
-      font-size: 17.5px;
+      font-size: 17.6px;
       font-weight: 400;
       margin-bottom: 10px;
       text-align: left;
+      color: white;
+      font-family: 'Poppins', sans-serif;
     }
 
     input, textarea {
       font-family: 'Poppins', sans-serif;
-      font-size: 17.5px;
+      font-size: 17.6px;
       font-weight: 400;
       color: black;
       padding: 10px;
@@ -92,7 +93,7 @@
     }
   </style>
 </head>
-<body class="formulario">
+<body>
   <div class="form-container">
     <img src="/static/icons/icono-receta.png" alt="Icono Receta" class="logo-grande">
     <h1>Receta Médica</h1>
@@ -114,16 +115,16 @@
 
   <div class="botones-flotantes">
     <button type="button" onclick="guardarFormulario()">
-      <img src="/static/icons/save-icon.svg" alt="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar">
     </button>
     <button type="button" onclick="imprimirFormulario()">
-      <img src="/static/icons/print-icon.svg" alt="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir">
     </button>
-    <button type="button" onclick="eliminarFormulario()">
-      <img src="/static/icons/delete-icon.svg" alt="Eliminar">
+    <button type="button" onclick="document.getElementById('form-receta').reset()">
+      <img src="/static/icons/borrar.png" alt="Borrar">
     </button>
     <button type="button">
-      <img src="/static/icons/close-icon.svg" alt="Cerrar">
+      <img src="/static/icons/enviar.png" alt="Enviar">
     </button>
   </div>
 
