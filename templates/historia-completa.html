@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Historia Clínica Completa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <script src="/static/js/historias/voz-a-formulario-historia-completa.js" defer></script>
+  <script src="/static/js/historias/guardar_historia_completa.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="/static/icons/icono-historia-clinica-completa.png" alt="Icono Historia Clínica" class="logo-grande" style="width: 120px; margin-top: 20px;" />
+    <h2 style="text-align: center; font-style: italic; font-weight: 600; font-size: 28px; color: white; margin-top: 10px;">
+      Historia Clínica Completa
+    </h2>
+  </header>
+
+  <main>
+    <form class="formulario" id="form-historia" style="display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: 0 auto; padding: 20px; align-items: center;">
+      <label class="etiqueta-campo"><span>Nombre del Paciente:</span><input type="text" id="nombre" required></label>
+      <label class="etiqueta-campo"><span>Edad:</span><input type="text" id="edad" required></label>
+      <label class="etiqueta-campo"><span>DNI:</span><input type="text" id="dni" required></label>
+      <label class="etiqueta-campo"><span>Fecha:</span><input type="date" id="fecha" required></label>
+      <label class="etiqueta-campo"><span>Motivo de Consulta:</span><textarea id="motivo" rows="2" required></textarea></label>
+      <label class="etiqueta-campo"><span>Antecedentes Personales:</span><textarea id="antecedentes" rows="3"></textarea></label>
+      <label class="etiqueta-campo"><span>Examen Físico:</span><textarea id="examen" rows="3"></textarea></label>
+      <label class="etiqueta-campo"><span>Estudios Complementarios:</span><textarea id="estudios" rows="3"></textarea></label>
+      <label class="etiqueta-campo"><span>Diagnóstico:</span><textarea id="diagnostico" rows="2" required></textarea></label>
+      <label class="etiqueta-campo"><span>Conducta / Tratamiento:</span><textarea id="conducta" rows="3"></textarea></label>
+    </form>
+
+    <div class="visor-pdf" style="margin-top: 40px; text-align: center;">
+      <h3>Vista previa del documento generado:</h3>
+      <iframe src="/static/doc/historia-clinica-completa-generada.pdf" type="application/pdf" style="width: 90%; height: 500px; border: 2px solid #09394f; border-radius: 10px;"></iframe>
+    </div>
+  </main>
+
+  <div class="botones-flotantes" style="position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000;">
+    <button type="button" onclick="iniciarReconocimiento()" title="Dictado por voz">
+      <img src="/static/icons/microfono.png" alt="Micrófono" />
+    </button>
+    <button type="button" onclick="guardarPDF()" title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
+    </button>
+    <button type="submit" form="form-historia" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </button>
+    <button type="button" onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    </button>
+    <button type="button" onclick="document.getElementById('form-historia').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
+    </button>
+  </div>
+</body>
+</html>
