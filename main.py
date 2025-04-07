@@ -5,17 +5,18 @@ from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
-# Rutas estáticas (CSS, JS, imágenes)
+# Archivos estáticos (CSS, JS, imágenes, íconos)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Carpeta de templates HTML
+# Templates HTML
 templates = Jinja2Templates(directory="templates")
 
-# Rutas principales de navegación
+# Página de inicio
 @app.get("/", response_class=HTMLResponse)
-async def inicio(request: Request):
+async def menu_principal(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
+# Rutas HTML del sistema
 @app.get("/registro", response_class=HTMLResponse)
 async def registro(request: Request):
     return templates.TemplateResponse("registro.html", {"request": request})
@@ -39,15 +40,3 @@ async def turnos(request: Request):
 @app.get("/busqueda", response_class=HTMLResponse)
 async def busqueda(request: Request):
     return templates.TemplateResponse("busqueda.html", {"request": request})
-
-@app.get("/historia-completa", response_class=HTMLResponse)
-async def historia_completa(request: Request):
-    return templates.TemplateResponse("historia-completa.html", {"request": request})
-
-@app.get("/historia-resumen", response_class=HTMLResponse)
-async def historia_resumen(request: Request):
-    return templates.TemplateResponse("historia-resumen.html", {"request": request})
-
-@app.get("/historia-evolucion", response_class=HTMLResponse)
-async def historia_evolucion(request: Request):
-    return templates.TemplateResponse("evolucion.html", {"request": request})
