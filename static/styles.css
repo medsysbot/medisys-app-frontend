@@ -1,7 +1,15 @@
-/* styles.css - MEDISYS FLEXIBLE */
+/* styles.css - MEDISYS RESPONSIVE */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #083a51;
   color: white;
   margin: 0;
@@ -15,8 +23,8 @@ header {
 .logo-grande {
   width: 120px;
   height: auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  margin: 30px auto 10px;
+  display: block;
 }
 
 h1, h2 {
@@ -29,12 +37,17 @@ h1.titulo {
   font-weight: 600;
   font-size: 28px;
   margin: 10px 0 25px;
+  text-align: center;
 }
 
 form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 label {
@@ -42,24 +55,32 @@ label {
   font-weight: 400;
   color: white;
   display: block;
+  margin-bottom: 5px;
 }
 
-input, select {
-  padding: 10px;
+input, select, textarea {
+  font-family: 'Poppins', sans-serif;
   font-size: 1.1rem;
-  border-radius: 8px;
-  border: none;
-  height: 36px;
+  font-weight: 400;
   color: black;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
   width: 100%;
-  max-width: 400px;
+  max-width: 100%;
+  height: 36px;
   box-sizing: border-box;
+}
+
+textarea {
+  height: auto;
+  resize: vertical;
 }
 
 /* Secciones de resultados de búsqueda */
 .resultado-seccion {
   margin: 20px 0;
-  padding: 0;
+  padding: 0 15px;
   border-radius: 10px;
 }
 
@@ -88,9 +109,9 @@ input, select {
   font-weight: 400;
   color: black;
   height: 36px;
-  box-sizing: border-box;
   width: 100%;
   max-width: 400px;
+  box-sizing: border-box;
 }
 
 /* Botones flotantes */
@@ -134,6 +155,8 @@ input, select {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
+  padding: 0 15px;
 }
 
 .menu-principal a {
@@ -147,7 +170,8 @@ input, select {
   font-size: 1.2rem;
   padding: 15px 20px;
   border-radius: 12px;
-  width: 300px;
+  width: 100%;
+  max-width: 360px;
   transition: background-color 0.3s;
 }
 
