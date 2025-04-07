@@ -2,18 +2,113 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Turnos Médicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #083C4A;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .logo-grande {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 28px;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .formulario {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      align-items: center;
+    }
+
+    .etiqueta-campo {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .etiqueta-campo span {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 17.6px;
+      text-align: left;
+      color: white;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .formulario input {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 17.6px;
+      font-weight: 400;
+      color: black;
+      height: 36px;
+      box-sizing: border-box;
+    }
+
+    .botones-flotantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+
+    .botones-flotantes button,
+    .botones-flotantes a {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
 </head>
 <body>
   <header>
     <img src="/static/icons/icono-turnos.png" alt="Turnos Médicos" class="logo-grande" />
+    <h2>Asignar Turno</h2>
   </header>
 
   <main>
-    <h2>Asignar Turno</h2>
-    <form class="formulario">
+    <form class="formulario" id="form-turnos">
       <label class="etiqueta-campo">
         <span>Nombre Completo:</span>
         <input type="text" name="nombre_completo" required x-webkit-speech />
@@ -36,18 +131,17 @@
     </form>
   </main>
 
-  <!-- Botones flotantes con iconos en español -->
   <div class="botones-flotantes">
-    <button title="Guardar">
+    <button type="submit" form="form-turnos" title="Guardar">
       <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
     <a href="/index" title="Volver al Menú">
       <img src="/static/icons/enviar.png" alt="Volver al Menú" />
     </a>
-    <button onclick="window.print()" title="Imprimir">
+    <button type="button" onclick="window.print()" title="Imprimir">
       <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
-    <button onclick="document.querySelector('form').reset()" title="Borrar">
+    <button type="button" onclick="document.getElementById('form-turnos').reset()" title="Borrar">
       <img src="/static/icons/borrar.png" alt="Borrar" />
     </button>
   </div>
