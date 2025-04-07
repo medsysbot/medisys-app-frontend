@@ -35,32 +35,36 @@
       margin-bottom: 30px;
     }
 
-    label {
-      display: flex;
-      flex-direction: column;
-      font-size: 17.6px;
-      font-weight: 400;
-      margin-bottom: 10px;
-      text-align: left;
-      color: white;
-      font-family: 'Poppins', sans-serif;
+    .etiqueta-campo {
+      max-width: 400px;
+      margin: 0 auto 15px auto;
     }
 
-    input, textarea {
+    .etiqueta-campo label {
+      font-size: 17.6px;
+      font-weight: 400;
+      margin-bottom: 5px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      text-align: left;
+      display: block;
+    }
+
+    .etiqueta-campo input,
+    .etiqueta-campo textarea {
       font-family: 'Poppins', sans-serif;
       font-size: 17.6px;
       font-weight: 400;
       color: black;
-      padding: 10px;
+      padding: 6px 10px;
       border: none;
       border-radius: 8px;
       width: 100%;
-      max-width: 100%;
       height: 36px;
       box-sizing: border-box;
     }
 
-    textarea {
+    .etiqueta-campo textarea {
       height: auto;
       resize: vertical;
     }
@@ -99,17 +103,25 @@
     <h1>Receta Médica</h1>
 
     <form id="form-receta">
-      <label for="nombre">Nombre del paciente:</label>
-      <input type="text" id="nombre" name="nombre" required>
+      <div class="etiqueta-campo">
+        <label for="nombre">Nombre del paciente:</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
 
-      <label for="dni">DNI:</label>
-      <input type="text" id="dni" name="dni" required>
+      <div class="etiqueta-campo">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" required>
+      </div>
 
-      <label for="fecha">Fecha:</label>
-      <input type="date" id="fecha" name="fecha" required>
+      <div class="etiqueta-campo">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
+      </div>
 
-      <label for="medicamentos">Medicamentos indicados:</label>
-      <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
+      <div class="etiqueta-campo">
+        <label for="medicamentos">Medicamentos indicados:</label>
+        <textarea id="medicamentos" name="medicamentos" rows="6" required></textarea>
+      </div>
     </form>
   </div>
 
