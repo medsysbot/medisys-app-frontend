@@ -1,33 +1,20 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const botonGuardar = document.getElementById("guardarHistoriaBtn");
+function guardarPDF() {
+  const formData = new FormData(document.getElementById("form-historia"));
 
-    if (botonGuardar) {
-        botonGuardar.addEventListener("click", async function () {
-            const texto = document.getElementById("historiaTexto")?.value;
-
-            if (!texto) {
-                alert("Por favor, escribe la historia clínica antes de guardar.");
-                return;
-            }
-
-            try {
-                const response = await fetch("/guardar_historia_completa", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ historia: texto }),
-                });
-
-                if (response.ok) {
-                    alert("Historia clínica guardada correctamente.");
-                } else {
-                    alert("Error al guardar la historia. Intenta nuevamente.");
-                }
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Error al conectar con el servidor.");
-            }
-        });
+  fetch('/generar-pdf-historia-clinica-completa', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (response.ok) {
+      alert('PDF generado correctamente');
+      document.querySelector('.visor-pdf iframe').src = '/static/doc/historia-clinica-completa-generada.pdf?' + new Date().getTime();
+    } else {
+      alert('Error al generar el PDF. Intenta nuevamente.');
     }
-});
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+    alert("No se pudo conectar con el servidor.");
+  });
+}
