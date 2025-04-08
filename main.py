@@ -14,12 +14,12 @@ templates = Jinja2Templates(directory="templates")
 # RUTAS DEL SISTEMA MEDSYS
 
 @app.get("/", response_class=HTMLResponse)
-async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
-
-@app.get("/splash", response_class=HTMLResponse)
 async def splash(request: Request):
     return templates.TemplateResponse("splash.html", {"request": request})
+
+@app.get("/index", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/registro", response_class=HTMLResponse)
 async def registro(request: Request):
