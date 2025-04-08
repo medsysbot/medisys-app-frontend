@@ -82,6 +82,39 @@
       border-radius: 6px;
       cursor: pointer;
     }
+    .visor-pdf {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .visor-pdf iframe {
+      width: 90%;
+      height: 500px;
+      border: 2px solid #09394f;
+      border-radius: 10px;
+    }
+    .botones-flotantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .botones-flotantes button {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
+    }
   </style>
 </head>
 <body>
@@ -126,3 +159,69 @@
         <button type="button" id="sello-delete" class="btn-eliminar" onclick="eliminarImagen('sello', 'sello-preview', 'sello-delete')" style="display:none;">Eliminar</button>
       </label>
     </form>
+
+    <div class="visor-pdf">
+      <h3>Vista previa del documento PDF:</h3>
+      <iframe id="pdf-visor" src="/static/doc/historia-clinica-completa-generada.pdf" type="application/pdf"></iframe>
+    </div>
+  </main>
+
+  <div class="botones-flotantes">
+    <button type="button" onclick="guardarPDF()" title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
+    </button>
+    <button type="submit" form="form-completa" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </button>
+    <button type="button" onclick="imprimirPDF()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    </button>
+    <button type="button" onclick="document.getElementById('form-completa').reset()" title="Borrar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
+    </button>
+    <button type="button" ondblclick="activarVoz()" title="Reconocimiento por voz">
+      <img src="/static/icons/microfono.png" alt="Voz" />
+    </button>
+  </div>
+
+  <script src="/static/js/funciones-pdf.js"></script>
+  <script>
+    function activarVoz() {
+      const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+      recognition.lang = "es-ES";
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.onresult = function(event) {
+        const texto = event.results[0][0].transcript;
+        const campoActivo = document.activeElement;
+        if (campoActivo && (campoActivo.tagName === 'INPUT' || campoActivo.tagName === 'TEXTAREA')) {
+          campoActivo.value += (campoActivo.value ? ' ' : '') + texto;
+        }
+      };
+      recognition.start();
+    }
+
+    function mostrarVistaPrevia(input, imgId, btnId) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = document.getElementById(imgId);
+        const btn = document.getElementById(btnId);
+        img.src = e.target.result;
+        img.style.display = "block";
+        btn.style.display = "inline-block";
+        input.style.display = "none";
+      };
+      if (file) reader.readAsDataURL(file);
+    }
+
+    function eliminarImagen(inputId, imgId, btnId) {
+      document.getElementById(inputId).value = "";
+      document.getElementById(imgId).src = "";
+      document.getElementById(imgId).style.display = "none";
+      document.getElementById(btnId).style.display = "none";
+      document.getElementById(inputId).style.display = "block";
+    }
+  </script>
+</body>
+</html>
