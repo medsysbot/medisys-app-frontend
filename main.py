@@ -29,6 +29,18 @@ async def registro(request: Request):
 async def historia(request: Request):
     return templates.TemplateResponse("historia.html", {"request": request})
 
+@app.get("/historia-completa", response_class=HTMLResponse)
+async def historia_completa(request: Request):
+    return templates.TemplateResponse("historia-completa.html", {"request": request})
+
+@app.get("/historia-resumen", response_class=HTMLResponse)
+async def historia_resumen(request: Request):
+    return templates.TemplateResponse("historia-resumen.html", {"request": request})
+
+@app.get("/historia-evolucion", response_class=HTMLResponse)
+async def historia_evolucion(request: Request):
+    return templates.TemplateResponse("historia-evolucion.html", {"request": request})
+
 @app.get("/receta", response_class=HTMLResponse)
 async def receta(request: Request):
     return templates.TemplateResponse("receta.html", {"request": request})
