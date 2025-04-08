@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro de Pacientes</title>
   <link rel="stylesheet" href="/static/styles.css" />
@@ -12,16 +12,13 @@
       font-family: 'Poppins', sans-serif;
       color: white;
     }
-
     header {
       text-align: center;
       margin-top: 20px;
     }
-
     .logo-grande {
       width: 180px;
     }
-
     h2 {
       text-align: center;
       font-style: italic;
@@ -30,7 +27,6 @@
       margin-top: 10px;
       color: white;
     }
-
     .formulario {
       display: flex;
       flex-direction: column;
@@ -40,24 +36,18 @@
       padding: 20px;
       align-items: center;
     }
-
     .etiqueta-campo {
       width: 100%;
       max-width: 400px;
     }
-
     .etiqueta-campo span {
-      font-family: 'Poppins', sans-serif;
       font-weight: 400;
       font-size: 1.1rem;
       text-align: left;
       color: white;
       display: block;
       margin-bottom: 5px;
-      text-decoration: none;
-      width: 100%;
     }
-
     .formulario input,
     .formulario select {
       width: 100%;
@@ -69,13 +59,11 @@
       font-weight: 400;
       font-size: 1.1rem;
       height: 36px;
-      text-decoration: none;
+      box-sizing: border-box;
     }
-
     input[type="date"] {
       height: 36px;
     }
-
     .botones-flotantes {
       position: fixed;
       right: 20px;
@@ -84,7 +72,6 @@
       flex-direction: column;
       gap: 15px;
     }
-
     .botones-flotantes button,
     .botones-flotantes a {
       background-color: #4A90E2;
@@ -96,7 +83,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .botones-flotantes img {
       width: 30px;
       height: 30px;
@@ -110,13 +96,11 @@
 
   <main>
     <h2>Registro de Pacientes</h2>
-    <form class="formulario">
-      
-      </label>
+    <form class="formulario" id="form-registro">
 
       <label class="etiqueta-campo">
         <span>Nombre del Paciente:</span>
-        <input type="text" name="nombre" required x-webkit-speech />
+        <input type="text" name="nombre" required />
       </label>
 
       <label class="etiqueta-campo">
@@ -166,7 +150,7 @@
   </main>
 
   <div class="botones-flotantes">
-    <button title="Guardar">
+    <button title="Guardar" onclick="guardarPDF()">
       <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
     <a href="/index" title="Volver al Menú">
@@ -175,9 +159,29 @@
     <button onclick="window.print()" title="Imprimir">
       <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
-    <button onclick="document.querySelector('form').reset()" title="Borrar">
+    <button onclick="document.getElementById('form-registro').reset()" title="Borrar">
       <img src="/static/icons/borrar.png" alt="Borrar" />
     </button>
+    <button type="button" ondblclick="activarVoz()" title="Reconocimiento por voz">
+      <img src="/static/icons/microfono.png" alt="Voz" />
+    </button>
   </div>
+
+  <script>
+    function activarVoz() {
+      const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+      recognition.lang = "es-ES";
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.onresult = function(event) {
+        const texto = event.results[0][0].transcript;
+        const campo = document.activeElement;
+        if (campo && (campo.tagName === "INPUT" || campo.tagName === "TEXTAREA")) {
+          campo.value += (campo.value ? " " : "") + texto;
+        }
+      };
+      recognition.start();
+    }
+  </script>
 </body>
 </html>
