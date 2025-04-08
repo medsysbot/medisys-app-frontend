@@ -15,7 +15,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/", response_class=HTMLResponse)
 async def splash(request: Request):
-    return templates.TemplateResponse("splash.html", {"request": request})
+    return templates.TemplateResponse("splash_screen.html", {"request": request})
 
 @app.get("/index", response_class=HTMLResponse)
 async def index(request: Request):
