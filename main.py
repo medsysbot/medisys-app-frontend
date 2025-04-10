@@ -24,7 +24,51 @@ templates = Jinja2Templates(directory="templates")
 async def root():
     return {"message": "MedSys Backend funcionando correctamente"}
 
-# ---------------- Ruta HTML Estudios Médicos ----------------
+# ---------------- Rutas HTML ----------------
+@app.get("/index", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
+
+@app.get("/registro", response_class=HTMLResponse)
+async def registro(request: Request):
+    return templates.TemplateResponse("registro.html", {"request": request})
+
+@app.get("/historia", response_class=HTMLResponse)
+async def historia(request: Request):
+    return templates.TemplateResponse("historia.html", {"request": request})
+
+@app.get("/historia-completa", response_class=HTMLResponse)
+async def historia_completa(request: Request):
+    return templates.TemplateResponse("historia-clinica-completa.html", {"request": request})
+
+@app.get("/historia-resumen", response_class=HTMLResponse)
+async def historia_resumen(request: Request):
+    return templates.TemplateResponse("historia-resumen.html", {"request": request})
+
+@app.get("/historia-evolucion", response_class=HTMLResponse)
+async def historia_evolucion(request: Request):
+    return templates.TemplateResponse("evolution.html", {"request": request})
+
+@app.get("/receta", response_class=HTMLResponse)
+async def receta(request: Request):
+    return templates.TemplateResponse("receta.html", {"request": request})
+
+@app.get("/indicaciones", response_class=HTMLResponse)
+async def indicaciones(request: Request):
+    return templates.TemplateResponse("indicaciones.html", {"request": request})
+
+@app.get("/turnos", response_class=HTMLResponse)
+async def turnos(request: Request):
+    return templates.TemplateResponse("turnos.html", {"request": request})
+
+@app.get("/busqueda", response_class=HTMLResponse)
+async def busqueda(request: Request):
+    return templates.TemplateResponse("busqueda.html", {"request": request})
+
+@app.get("/splash", response_class=HTMLResponse)
+async def splash(request: Request):
+    return templates.TemplateResponse("splash_screen.html", {"request": request})
+
 @app.get("/estudios", response_class=HTMLResponse)
 async def estudios(request: Request):
     return templates.TemplateResponse("estudios.html", {"request": request})
@@ -76,4 +120,3 @@ async def subir_estudio(archivo: UploadFile = File(...)):
         return {"status": "success", "message": "Archivo subido correctamente"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
-
