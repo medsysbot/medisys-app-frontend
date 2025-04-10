@@ -63,6 +63,16 @@
       height: 36px;
       box-sizing: border-box;
     }
+    .visor-pdf {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .visor-pdf iframe {
+      width: 90%;
+      height: 500px;
+      border: 2px solid #09394f;
+      border-radius: 10px;
+    }
     .botones-flotantes {
       position: fixed;
       right: 20px;
@@ -72,8 +82,7 @@
       gap: 15px;
       z-index: 1000;
     }
-    .botones-flotantes button,
-    .botones-flotantes a {
+    .botones-flotantes button {
       background-color: #4A90E2;
       border: none;
       border-radius: 50%;
@@ -99,34 +108,40 @@
     <form class="formulario" id="form-turnos">
       <label class="etiqueta-campo">
         <span>Nombre Completo:</span>
-        <input type="text" name="nombre_completo" required />
+        <input type="text" id="nombre_completo" name="nombre_completo" required />
       </label>
-
       <label class="etiqueta-campo">
         <span>DNI:</span>
-        <input type="text" name="dni" required />
+        <input type="text" id="dni" name="dni" required />
       </label>
-
       <label class="etiqueta-campo">
         <span>Teléfono:</span>
-        <input type="tel" name="telefono" required />
+        <input type="tel" id="telefono" name="telefono" required />
       </label>
-
       <label class="etiqueta-campo">
         <span>Fecha del Turno:</span>
-        <input type="date" name="fecha_turno" required />
+        <input type="date" id="fecha_turno" name="fecha_turno" required />
+      </label>
+      <label class="etiqueta-campo">
+        <span>Profesional:</span>
+        <input type="text" id="profesional" name="profesional" required />
       </label>
     </form>
+
+    <div class="visor-pdf">
+      <h3>Vista previa del documento PDF:</h3>
+      <iframe id="pdf-visor" src="/static/doc/turno-medico-generado.pdf" type="application/pdf"></iframe>
+    </div>
   </main>
 
   <div class="botones-flotantes">
-    <button type="submit" form="form-turnos" title="Guardar">
+    <button type="button" onclick="guardarPDF()" title="Guardar">
       <img src="/static/icons/guardar.png" alt="Guardar" />
     </button>
-    <a href="/index" title="Volver al Menú">
-      <img src="/static/icons/enviar.png" alt="Volver al Menú" />
-    </a>
-    <button type="button" onclick="window.print()" title="Imprimir">
+    <button type="submit" form="form-turnos" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </button>
+    <button type="button" onclick="imprimirPDF()" title="Imprimir">
       <img src="/static/icons/imprimir.png" alt="Imprimir" />
     </button>
     <button type="button" onclick="document.getElementById('form-turnos').reset()" title="Borrar">
@@ -137,6 +152,7 @@
     </button>
   </div>
 
+  <script src="/static/js/funciones-pdf.js"></script>
   <script>
     function activarVoz() {
       const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
