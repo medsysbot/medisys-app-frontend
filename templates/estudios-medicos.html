@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Estudios Médicos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #083C4A;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .logo-grande {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    h2 {
+      text-align: center;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 28px;
+      color: white;
+      margin-top: 10px;
+    }
+    .campo-busqueda {
+      margin: 20px auto;
+      max-width: 400px;
+      width: 90%;
+    }
+    .campo-busqueda label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17.6px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 5px;
+    }
+    .campo-busqueda input[type="search"] {
+      width: 100%;
+      padding: 6px 10px;
+      font-size: 17.6px;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      box-sizing: border-box;
+    }
+    .resultado-seccion {
+      margin: 20px auto;
+      padding: 0;
+      border-radius: 10px;
+      max-width: 400px;
+      width: 90%;
+      text-align: left;
+    }
+    .resultado-item {
+      background-color: #09394f;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .visor-pdf {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .visor-pdf iframe {
+      width: 90%;
+      height: 500px;
+      border: 2px solid #09394f;
+      border-radius: 10px;
+    }
+    .botones-flotantes {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 1000;
+    }
+    .botones-flotantes button {
+      background-color: #4A90E2;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .botones-flotantes img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="/static/icons/estudios.png" alt="Estudios Médicos" class="logo-grande" />
+    <h2>Estudios Médicos</h2>
+  </header>
+
+  <main>
+    <div class="campo-busqueda">
+      <label for="busqueda">
+        <img src="/static/icons/busqueda.png" alt="Buscar" width="24" height="24" />
+        <span>Buscar por Nombre o DNI:</span>
+      </label>
+      <input type="search" id="busqueda" name="busqueda" placeholder="Ej: Juan Pérez o 12345678" />
+    </div>
+
+    <section id="lista-estudios" class="resultado-seccion"></section>
+
+    <div class="visor-pdf">
+      <h3>Vista previa del estudio:</h3>
+      <iframe id="pdf-visor" src="" type="application/pdf"></iframe>
+    </div>
+  </main>
+
+  <div class="botones-flotantes">
+    <button onclick="listarEstudios()" title="Buscar">
+      <img src="/static/icons/busquedas.png" alt="Buscar" />
+    </button>
+    <button onclick="enviarEstudio()" title="Enviar">
+      <img src="/static/icons/enviar.png" alt="Enviar" />
+    </button>
+    <button onclick="window.print()" title="Imprimir">
+      <img src="/static/icons/imprimir.png" alt="Imprimir" />
+    </button>
+    <button onclick="limpiarEstudio()" title="Limpiar">
+      <img src="/static/icons/borrar.png" alt="Borrar" />
+    </button>
+    <button ondblclick="activarVoz()" title="Reconocimiento por voz">
+      <img src="/static/icons/microfono.png" alt="Voz" />
+    </button>
+    <button onclick="guardarEstudio()" title="Guardar">
+      <img src="/static/icons/guardar.png" alt="Guardar" />
+    </button>
+  </div>
+
+  <script>
+    function listarEstudios() {
+      fetch('/listar-estudios')
+        .then(r => r.json())
+        .then(data => {
+          const contenedor = document.getElementById('lista-estudios');
+          contenedor.innerHTML = '';
+          data.archivos.forEach(archivo => {
+            const div = document.createElement('div');
+            div.className = 'resultado-item';
+            div.innerHTML = `
+              <span>${archivo}</span>
+              <button onclick=\"document.getElementById('pdf-visor').src='/static/estudios/${archivo}'\">Ver</button>
+              <button onclick=\"eliminarEstudio('${archivo}')\">Eliminar</button>
+            `;
+            contenedor.appendChild(div);
+          });
+        });
+    }
+
+    function eliminarEstudio(nombre) {
+      const form = new FormData();
+      form.append("nombre_archivo", nombre);
+      fetch("/eliminar-estudio", { method: "POST", body: form })
+        .then(() => listarEstudios());
+    }
+
+    function activarVoz() {
+      const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+      recognition.lang = "es-ES";
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.onresult = function(event) {
+        const texto = event.results[0][0].transcript;
+        const campo = document.activeElement;
+        if (campo && (campo.tagName === "INPUT" || campo.tagName === "TEXTAREA")) {
+          campo.value += (campo.value ? " " : "") + texto;
+        }
+      };
+      recognition.start();
+    }
+
+    function limpiarEstudio() {
+      document.getElementById("busqueda").value = "";
+      document.getElementById("pdf-visor").src = "";
+    }
+
+    function enviarEstudio() {
+      alert("Envío simulado");
+    }
+
+    function guardarEstudio() {
+      alert("Estudio guardado correctamente");
+    }
+
+    window.onload = listarEstudios;
+  </script>
+</body>
+</html>
