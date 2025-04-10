@@ -130,13 +130,12 @@
       <label class="etiqueta-campo"><span>Fecha:</span><input type="date" id="fecha" name="fecha" required /></label>
       <label class="etiqueta-campo"><span>Diagnóstico:</span><textarea id="diagnostico" name="diagnostico" rows="3" required></textarea></label>
       <label class="etiqueta-campo"><span>Evolución:</span><textarea id="evolucion" name="evolucion" rows="3" required></textarea></label>
-
+      <label class="etiqueta-campo"><span>Profesional:</span><input type="text" id="profesional" name="profesional" required /></label>
       <label class="etiqueta-campo"><span>Firma del Profesional (imagen):</span>
         <input type="file" id="firma" name="firma" accept="image/*" onchange="mostrarVistaPrevia(this, 'firma-preview', 'firma-delete')" />
         <img id="firma-preview" class="vista-previa" style="display:none;" />
         <button type="button" id="firma-delete" class="btn-eliminar" onclick="eliminarImagen('firma', 'firma-preview', 'firma-delete')" style="display:none;">Eliminar</button>
       </label>
-
       <label class="etiqueta-campo"><span>Sello del Profesional (imagen):</span>
         <input type="file" id="sello" name="sello" accept="image/*" onchange="mostrarVistaPrevia(this, 'sello-preview', 'sello-delete')" />
         <img id="sello-preview" class="vista-previa" style="display:none;" />
@@ -209,4 +208,5 @@
   </script>
 </body>
 </html>
+
 
