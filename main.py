@@ -47,7 +47,7 @@ async def historia_resumen(request: Request):
 
 @app.get("/historia-evolucion", response_class=HTMLResponse)
 async def historia_evolucion(request: Request):
-    return templates.TemplateResponse("evolution.html", {"request": request})
+    return templates.TemplateResponse("evolucion.html", {"request": request})
 
 @app.get("/receta", response_class=HTMLResponse)
 async def receta(request: Request):
